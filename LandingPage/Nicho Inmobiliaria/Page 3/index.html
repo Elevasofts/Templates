@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePlex - Encuentra Tu Hogar Perfecto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#FF5722',
+                        'primary-dark': '#E64A19',
+                        'secondary': '#FFF3E0',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                            <i class="fas fa-home text-white text-sm"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-gray-800">HomePlex</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-primary transition duration-300">Inicio</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary transition duration-300">Nosotros</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary transition duration-300">Servicios</a>
+                    <a href="#properties" class="text-gray-700 hover:text-primary transition duration-300">Propiedades</a>
+                    <a href="#reviews" class="text-gray-700 hover:text-primary transition duration-300">Reviews</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition duration-300">Contacto</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="text-gray-700 hover:text-primary transition duration-300">Iniciar Sesión</button>
+                    <button class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition duration-300">Registrarse</button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="text-gray-700 hover:text-primary" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="text-gray-700 hover:text-primary">Inicio</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary">Nosotros</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary">Servicios</a>
+                    <a href="#properties" class="text-gray-700 hover:text-primary">Propiedades</a>
+                    <a href="#reviews" class="text-gray-700 hover:text-primary">Reviews</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary">Contacto</a>
+                    <button class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark w-fit">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero Section -->
+<section id="home" class="relative min-h-screen flex items-center justify-center px-4 bg-gray-900 text-white overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+             alt="Modern Architecture"
+             class="w-full h-full object-cover brightness-[0.4]">
+    </div>
+
+    <!-- Content Container -->
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+        <!-- Badge -->
+        <div class="inline-block bg-orange-500/20 text-orange-300 px-5 py-2 rounded-full text-sm font-medium mb-6 border border-orange-300/30 backdrop-blur-sm">
+            Welcome to HomePlex
+        </div>
+
+        <!-- Heading -->
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-light leading-tight mb-8">
+            Find your 
+            <span class="relative inline-block text-orange-400 group">
+                PERFECT HOME
+                <span class="absolute left-0 bottom-0 w-full h-[2px] bg-orange-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></span>
+            </span>
+            <br class="hidden sm:block">
+            in just 
+            <span class="relative inline-block text-orange-400 group">
+                minutes
+                <span class="absolute left-0 bottom-0 w-full h-[2px] bg-orange-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></span>
+            </span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+            At HomePlex, we help you find more than a house: discover a home where you can build your future.
+            Buy, sell, or search with complete confidence.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <button class="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full text-lg font-medium shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-search"></i> Start Your Search
+            </button>
+            <button class="flex items-center justify-center gap-2 border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 backdrop-blur-sm">
+                <i class="fas fa-play"></i> Watch Demo
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block bg-primary/10 px-4 py-2 rounded-full mb-6">
+                        <span class="text-primary font-semibold">Sobre Nosotros</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                        Tu Socio de Confianza en 
+                        <span class="text-primary">Bienes Raíces</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Con más de 10 años de experiencia en el mercado inmobiliario, HomePlex se ha establecido como líder en la industria, ayudando a miles de familias a encontrar su hogar perfecto.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-check text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Experiencia Comprobada</h4>
+                                <p class="text-gray-600">Más de 5,000 propiedades vendidas exitosamente</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-users text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Atención Personalizada</h4>
+                                <p class="text-gray-600">Cada cliente recibe un servicio único y dedicado</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-shield-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Transparencia Total</h4>
+                                <p class="text-gray-600">Sin costos ocultos, procesos claros y honestos</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">
+                        Conocer Más
+                    </button>
+                </div>
+                <div class="lg:order-first">
+                    <img src="https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Equipo profesional" class="rounded-2xl shadow-xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-primary/10 px-4 py-2 rounded-full mb-6">
+                    <span class="text-primary font-semibold">Nuestros Servicios</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Todo lo que Necesitas en 
+                    <span class="text-primary">Un Solo Lugar</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ofrecemos servicios completos de bienes raíces para satisfacer todas tus necesidades inmobiliarias
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition duration-300">
+                        <i class="fas fa-home text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Compra de Propiedades</h3>
+                    <p class="text-gray-600 mb-6">Te ayudamos a encontrar y adquirir la propiedad perfecta que se ajuste a tu presupuesto y necesidades.</p>
+                    <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300 flex items-center space-x-2">
+                        <span>Saber más</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition duration-300">
+                        <i class="fas fa-dollar-sign text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Venta de Propiedades</h3>
+                    <p class="text-gray-600 mb-6">Maximiza el valor de tu propiedad con nuestras estrategias de marketing y negociación expertas.</p>
+                    <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300 flex items-center space-x-2">
+                        <span>Saber más</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition duration-300">
+                        <i class="fas fa-key text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Alquiler</h3>
+                    <p class="text-gray-600 mb-6">Gestión completa de alquileres, desde la búsqueda hasta la administración de contratos.</p>
+                    <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300 flex items-center space-x-2">
+                        <span>Saber más</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition duration-300">
+                        <i class="fas fa-chart-line text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Valuación</h3>
+                    <p class="text-gray-600 mb-6">Obten una valuación precisa y actualizada de tu propiedad basada en el mercado actual.</p>
+                    <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300 flex items-center space-x-2">
+                        <span>Saber más</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition duration-300">
+                        <i class="fas fa-handshake text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Asesoría Legal</h3>
+                    <p class="text-gray-600 mb-6">Soporte legal completo para todas tus transacciones inmobiliarias y documentación.</p>
+                    <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300 flex items-center space-x-2">
+                        <span>Saber más</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition duration-300">
+                        <i class="fas fa-tools text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Remodelación</h3>
+                    <p class="text-gray-600 mb-6">Servicios de renovación y remodelación para aumentar el valor de tu propiedad.</p>
+                    <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300 flex items-center space-x-2">
+                        <span>Saber más</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="properties" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-primary/10 px-4 py-2 rounded-full mb-6">
+                    <span class="text-primary font-semibold">Propiedades Destacadas</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Descubre Nuestras 
+                    <span class="text-primary">Mejores Propiedades</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Una selección cuidadosamente curada de las propiedades más exclusivas disponibles
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Property 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Casa moderna" class="w-full h-64 object-cover group-hover:scale-110 transition duration-300">
+                        <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            En Venta
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition duration-300">
+                            <i class="fas fa-heart text-gray-600 hover:text-primary cursor-pointer"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-gray-800">Casa Moderna Minimalista</h3>
+                            <span class="text-2xl font-bold text-primary">$450K</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                            Beverly Hills, CA
+                        </p>
+                        <div class="flex items-center space-x-4 mb-4 text-gray-600">
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-bed text-primary"></i>
+                                <span>4 hab</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-bath text-primary"></i>
+                                <span>3 baños</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-ruler-combined text-primary"></i>
+                                <span>2,500 ft²</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Apartamento lujoso" class="w-full h-64 object-cover group-hover:scale-110 transition duration-300">
+                        <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Alquiler
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition duration-300">
+                            <i class="fas fa-heart text-gray-600 hover:text-primary cursor-pointer"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-gray-800">Apartamento de Lujo</h3>
+                            <span class="text-2xl font-bold text-primary">$2.8K/mes</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                            Manhattan, NY
+                        </p>
+                        <div class="flex items-center space-x-4 mb-4 text-gray-600">
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-bed text-primary"></i>
+                                <span>2 hab</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-bath text-primary"></i>
+                                <span>2 baños</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-ruler-combined text-primary"></i>
+                                <span>1,200 ft²</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/1694007/pexels-photo-1694007.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Villa contemporánea" class="w-full h-64 object-cover group-hover:scale-110 transition duration-300">
+                        <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            En Venta
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition duration-300">
+                            <i class="fas fa-heart text-gray-600 hover:text-primary cursor-pointer"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-gray-800">Villa Contemporánea</h3>
+                            <span class="text-2xl font-bold text-primary">$1.2M</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                            Malibu, CA
+                        </p>
+                        <div class="flex items-center space-x-4 mb-4 text-gray-600">
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-bed text-primary"></i>
+                                <span>5 hab</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-bath text-primary"></i>
+                                <span>4 baños</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-ruler-combined text-primary"></i>
+                                <span>4,200 ft²</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">
+                    Ver Todas las Propiedades
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-primary/10 px-4 py-2 rounded-full mb-6">
+                    <span class="text-primary font-semibold">Testimonios</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Lo que Dicen Nuestros 
+                    <span class="text-primary">Clientes</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Miles de familias felices han encontrado su hogar perfecto con nosotros
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="flex items-center space-x-1 mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "HomePlex hizo que el proceso de comprar nuestra primera casa fuera increíblemente fácil. Su equipo nos guió en cada paso y encontramos exactamente lo que buscábamos."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <img src="https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Cliente" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">María González</h4>
+                            <p class="text-gray-600 text-sm">Compradora</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="flex items-center space-x-1 mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "Vendí mi propiedad por encima del precio que esperaba. El equipo de marketing de HomePlex es excepcional y su estrategia funcionó perfectamente."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Cliente" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Carlos Rodríguez</h4>
+                            <p class="text-gray-600 text-sm">Vendedor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="flex items-center space-x-1 mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "Profesionales, confiables y siempre disponibles. HomePlex superó todas mis expectativas. Recomiendo sus servicios sin dudarlo."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Cliente" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Ana Martínez</h4>
+                            <p class="text-gray-600 text-sm">Inversora</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">5,000+</div>
+                    <div class="text-gray-600">Propiedades Vendidas</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">98%</div>
+                    <div class="text-gray-600">Clientes Satisfechos</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">10+</div>
+                    <div class="text-gray-600">Años de Experiencia</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">50+</div>
+                    <div class="text-gray-600">Agentes Expertos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-primary/10 px-4 py-2 rounded-full mb-6">
+                    <span class="text-primary font-semibold">Contáctanos</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    ¿Listo para Encontrar 
+                    <span class="text-primary">Tu Hogar?</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Nuestro equipo está aquí para ayudarte. Contacta con nosotros hoy mismo.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Oficina Principal</h3>
+                                <p class="text-gray-600">123 Real Estate Avenue<br>Ciudad de México, CP 01234</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Teléfono</h3>
+                                <p class="text-gray-600">+52 55 1234-5678<br>+52 55 8765-4321</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Email</h3>
+                                <p class="text-gray-600">info@homplex.com<br>ventas@homplex.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Horarios</h3>
+                                <p class="text-gray-600">Lun - Vie: 9:00 AM - 7:00 PM<br>Sáb - Dom: 10:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="mt-12">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Síguenos</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dark transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dark transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dark transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dark transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-gray-50 rounded-2xl p-8">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 text-sm font-medium mb-2">Nombre</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Tu nombre">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-medium mb-2">Apellido</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Tu apellido">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">Email</label>
+                            <input type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="tu@email.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">Teléfono</label>
+                            <input type="tel" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="+52 55 1234-5678">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">Servicio de Interés</label>
+                            <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option>Compra de Propiedad</option>
+                                <option>Venta de Propiedad</option>
+                                <option>Alquiler</option>
+                                <option>Valuación</option>
+                                <option>Asesoría Legal</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">Mensaje</label>
+                            <textarea rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Cuéntanos más sobre lo que necesitas..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                            <i class="fas fa-home text-white"></i>
+                        </div>
+                        <span class="text-2xl font-bold">HomePlex</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Tu socio de confianza en bienes raíces. Ayudamos a miles de familias a encontrar su hogar perfecto con transparencia, profesionalismo y dedicación.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Enlaces Rápidos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-300 hover:text-primary transition duration-300">Inicio</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-primary transition duration-300">Nosotros</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-primary transition duration-300">Servicios</a></li>
+                        <li><a href="#properties" class="text-gray-300 hover:text-primary transition duration-300">Propiedades</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-primary transition duration-300">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Servicios</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition duration-300">Compra</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition duration-300">Venta</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition duration-300">Alquiler</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition duration-300">Valuación</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition duration-300">Asesoría Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-300 text-sm">
+                        © 2025 HomePlex. Todos los derechos reservados.
+                    </p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-300 hover:text-primary text-sm transition duration-300">Política de Privacidad</a>
+                        <a href="#" class="text-gray-300 hover:text-primary text-sm transition duration-300">Términos de Servicio</a>
+                        <a href="#" class="text-gray-300 hover:text-primary text-sm transition duration-300">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full shadow-lg hover:bg-primary-dark transition duration-300 opacity-0 pointer-events-none z-40">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
+                backToTopButton.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'pointer-events-none');
+                backToTopButton.classList.remove('opacity-100', 'pointer-events-auto');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form Submission
+        const contactForm = document.querySelector('form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+            this.reset();
+        });
+
+        // Property Filter Buttons
+        document.querySelectorAll('button[class*="rounded-full"]').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('button[class*="rounded-full"]').forEach(btn => {
+                    if (btn.textContent.includes('Casa') || btn.textContent.includes('Apartamento') || btn.textContent.includes('Duplex') || btn.textContent.includes('Residencial')) {
+                        btn.classList.remove('bg-primary', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-700');
+                    }
+                });
+                
+                // Add active class to clicked button
+                this.classList.remove('bg-gray-200', 'text-gray-700');
+                this.classList.add('bg-primary', 'text-white');
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

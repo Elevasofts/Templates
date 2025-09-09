@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradise Hotels - Tu Destino Perfecto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'paradise-green': '#10B981',
+                        'paradise-blue': '#3B82F6',
+                        'paradise-slate': '#64748B'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(16, 185, 129, 0.8), rgba(59, 130, 246, 0.8)), url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg') center/cover;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fas fa-palm-tree text-2xl text-paradise-green mr-2"></i>
+                    <span class="text-xl font-bold text-gray-800">Paradise Hotels</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-paradise-green transition-colors duration-200">Inicio</a>
+                        <a href="#about" class="hover:text-paradise-green transition-colors duration-200">Nosotros</a>
+                        <a href="#services" class="hover:text-paradise-green transition-colors duration-200">Servicios</a>
+                        <a href="#gallery" class="hover:text-paradise-green transition-colors duration-200">Galería</a>
+                        <a href="#reviews" class="hover:text-paradise-green transition-colors duration-200">Reseñas</a>
+                        <a href="#contact" class="hover:text-paradise-green transition-colors duration-200">Contacto</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-paradise-green">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-16 left-0 w-full h-screen bg-white md:hidden">
+            <div class="px-4 pt-6 space-y-4">
+                <a href="#home" class="block py-2 text-lg hover:text-paradise-green transition-colors">Inicio</a>
+                <a href="#about" class="block py-2 text-lg hover:text-paradise-green transition-colors">Nosotros</a>
+                <a href="#services" class="block py-2 text-lg hover:text-paradise-green transition-colors">Servicios</a>
+                <a href="#gallery" class="block py-2 text-lg hover:text-paradise-green transition-colors">Galería</a>
+                <a href="#reviews" class="block py-2 text-lg hover:text-paradise-green transition-colors">Reseñas</a>
+                <a href="#contact" class="block py-2 text-lg hover:text-paradise-green transition-colors">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-white">
+        <div class="text-center max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+                Descubre el Paraíso
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 animate-fade-in" style="animation-delay: 0.2s;">
+                Vive experiencias únicas en los destinos más hermosos del mundo
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style="animation-delay: 0.4s;">
+                <a href="#services" class="bg-paradise-green hover:bg-green-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105">
+                    Explorar Hoteles
+                </a>
+                <a href="#contact" class="border-2 border-white hover:bg-white hover:text-paradise-green text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105">
+                    Contactar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Sobre Nosotros</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-paradise-green to-paradise-blue mx-auto"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-semibold text-gray-800">25 años creando experiencias inolvidables</h3>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        En Paradise Hotels, nos dedicamos a ofrecer experiencias de viaje excepcionales que superan las expectativas de nuestros huéspedes. Con más de 25 años de experiencia en la industria hotelera, hemos perfeccionado el arte de la hospitalidad.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Nuestros hoteles están ubicados en los destinos más hermosos del mundo, desde playas paradisíacas hasta ciudades culturalmente ricas, ofreciendo a nuestros huéspedes acceso a experiencias únicas y memorables.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-8 pt-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-paradise-green">50+</div>
+                            <p class="text-gray-600">Hoteles</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-paradise-blue">1M+</div>
+                            <p class="text-gray-600">Huéspedes Felices</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg" alt="Hotel Luxury" class="rounded-lg shadow-lg w-full">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-lg shadow-lg">
+                        <i class="fas fa-award text-3xl text-paradise-green mb-2"></i>
+                        <p class="font-semibold">Premio a la Excelencia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Nuestros Servicios</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-paradise-green to-paradise-blue mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ofrecemos una amplia gama de servicios para hacer de tu estadía una experiencia inolvidable
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-r from-paradise-green to-green-400 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bed text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Habitaciones de Lujo</h3>
+                    <p class="text-gray-600 mb-6">Suites elegantes y cómodas con vistas espectaculares, amenidades premium y servicios personalizados.</p>
+                    <a href="#contact" class="text-paradise-green hover:text-green-600 font-semibold">Reservar ahora →</a>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-r from-paradise-blue to-blue-400 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-utensils text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Gastronomía Gourmet</h3>
+                    <p class="text-gray-600 mb-6">Restaurantes de clase mundial con chefs reconocidos internacionalmente y cocina local e internacional.</p>
+                    <a href="#contact" class="text-paradise-blue hover:text-blue-600 font-semibold">Ver menús →</a>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-r from-paradise-slate to-slate-400 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-spa text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Spa & Wellness</h3>
+                    <p class="text-gray-600 mb-6">Tratamientos de spa relajantes, gimnasio moderno y actividades de bienestar para renovar tu cuerpo y mente.</p>
+                    <a href="#contact" class="text-paradise-slate hover:text-slate-600 font-semibold">Reservar cita →</a>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-r from-paradise-green to-green-400 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-swimmer text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Actividades Acuáticas</h3>
+                    <p class="text-gray-600 mb-6">Piscinas infinity, deportes acuáticos, buceo y snorkel en aguas cristalinas.</p>
+                    <a href="#contact" class="text-paradise-green hover:text-green-600 font-semibold">Ver actividades →</a>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-r from-paradise-blue to-blue-400 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-concierge-bell text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Concierge 24/7</h3>
+                    <p class="text-gray-600 mb-6">Servicio personalizado las 24 horas para ayudarte con reservas, tours y cualquier necesidad.</p>
+                    <a href="#contact" class="text-paradise-blue hover:text-blue-600 font-semibold">Contactar →</a>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-r from-paradise-slate to-slate-400 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-map-marked-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Tours Exclusivos</h3>
+                    <p class="text-gray-600 mb-6">Excursiones privadas a los lugares más espectaculares con guías expertos locales.</p>
+                    <a href="#contact" class="text-paradise-slate hover:text-slate-600 font-semibold">Ver tours →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Galería</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-paradise-green to-paradise-blue mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Descubre la belleza de nuestros hoteles y destinos
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <img src="https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg" alt="Hotel Exterior" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-lg font-semibold">Vista Exterior</h3>
+                            <p class="text-sm">Arquitectura moderna</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg" alt="Habitación Suite" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-lg font-semibold">Suite Presidencial</h3>
+                            <p class="text-sm">Lujo y comodidad</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg" alt="Piscina" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-lg font-semibold">Piscina Infinity</h3>
+                            <p class="text-sm">Vista al océano</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <img src="https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg" alt="Restaurante" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-lg font-semibold">Restaurante Gourmet</h3>
+                            <p class="text-sm">Cocina internacional</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <img src="https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg" alt="Spa" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-lg font-semibold">Spa Relajante</h3>
+                            <p class="text-sm">Tratamientos exclusivos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <img src="https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg" alt="Playa" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-lg font-semibold">Playa Privada</h3>
+                            <p class="text-sm">Aguas cristalinas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Lo que dicen nuestros huéspedes</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-paradise-green to-paradise-blue mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Testimonios reales de huéspedes que han vivido experiencias inolvidables
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-xl p-8 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "Una experiencia absolutamente increíble. El servicio fue impecable y las instalaciones superaron todas mis expectativas. Definitivamente regresaré."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg" alt="María González" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">María González</h4>
+                            <p class="text-sm text-gray-600">Madrid, España</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "El hotel más hermoso en el que me he hospedado. La atención al detalle y el personal tan amable hicieron que nuestras vacaciones fueran perfectas."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg" alt="Carlos Ruiz" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Carlos Ruiz</h4>
+                            <p class="text-sm text-gray-600">Buenos Aires, Argentina</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "Cada detalle fue perfecto, desde la recepción hasta el momento de partir. Una experiencia de lujo auténtica que recomiendo totalmente."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg" alt="Ana Martín" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Ana Martín</h4>
+                            <p class="text-sm text-gray-600">Barcelona, España</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Preguntas Frecuentes</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-paradise-green to-paradise-blue mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600">
+                    Respuestas a las preguntas más comunes sobre nuestros servicios
+                </p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-md">
+                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold text-gray-800">¿Cuál es el horario de check-in y check-out?</span>
+                        <i class="fas fa-plus text-paradise-green transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600">El check-in es a partir de las 15:00 horas y el check-out hasta las 12:00 horas. Ofrecemos servicio de custodia de equipaje sin costo adicional.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md">
+                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold text-gray-800">¿Incluye desayuno la estadía?</span>
+                        <i class="fas fa-plus text-paradise-green transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600">Sí, todas nuestras habitaciones incluyen desayuno buffet continental con opciones locales e internacionales. También ofrecemos opciones vegetarianas y veganas.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md">
+                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold text-gray-800">¿Permiten mascotas en el hotel?</span>
+                        <i class="fas fa-plus text-paradise-green transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600">Sí, somos pet-friendly. Permitimos mascotas pequeñas y medianas con un costo adicional. Por favor, infórmanos al momento de la reserva.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md">
+                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold text-gray-800">¿Hay WiFi gratuito?</span>
+                        <i class="fas fa-plus text-paradise-green transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600">Por supuesto, ofrecemos WiFi de alta velocidad gratuito en todas las áreas del hotel, incluyendo habitaciones, lobby, restaurantes y áreas comunes.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md">
+                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold text-gray-800">¿Ofrecen transporte del aeropuerto?</span>
+                        <i class="fas fa-plus text-paradise-green transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600">Sí, ofrecemos servicio de transfer privado desde y hacia el aeropuerto. Este servicio debe reservarse con anticipación y tiene un costo adicional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Contáctanos</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-paradise-green to-paradise-blue mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Estamos aquí para ayudarte a planificar tu estancia perfecta
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Información de Contacto</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-paradise-green rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Dirección</h4>
+                                <p class="text-gray-600">Avenida del Mar 123, Playa Paraíso<br>Costa Tropical, CP 12345</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-paradise-blue rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Teléfono</h4>
+                                <p class="text-gray-600">+34 900 123 456<br>Disponible 24/7</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-paradise-slate rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Email</h4>
+                                <p class="text-gray-600">reservas@paradisehotels.com<br>info@paradisehotels.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-gray-800 mb-4">Síguenos</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-paradise-green hover:bg-green-600 rounded-full flex items-center justify-center text-white transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-paradise-blue hover:bg-blue-600 rounded-full flex items-center justify-center text-white transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-paradise-slate hover:bg-slate-600 rounded-full flex items-center justify-center text-white transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nombre completo</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-paradise-green focus:border-transparent" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-paradise-green focus:border-transparent" required>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-paradise-green focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="dates" class="block text-sm font-medium text-gray-700 mb-2">Fechas de estancia</label>
+                            <input type="text" id="dates" name="dates" placeholder="Check-in - Check-out" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-paradise-green focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-paradise-green focus:border-transparent" placeholder="Cuéntanos sobre tus necesidades especiales o preguntas"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gradient-to-r from-paradise-green to-paradise-blue hover:from-green-600 hover:to-blue-600 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-palm-tree text-2xl text-paradise-green mr-2"></i>
+                        <span class="text-xl font-bold">Paradise Hotels</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Creando experiencias inolvidables en los destinos más hermosos del mundo desde 1998.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 bg-paradise-green hover:bg-green-600 rounded-full flex items-center justify-center text-white transition-colors text-sm">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-paradise-blue hover:bg-blue-600 rounded-full flex items-center justify-center text-white transition-colors text-sm">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-paradise-slate hover:bg-slate-600 rounded-full flex items-center justify-center text-white transition-colors text-sm">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Enlaces Rápidos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-paradise-green transition-colors">Inicio</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-paradise-green transition-colors">Nosotros</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-paradise-green transition-colors">Servicios</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-paradise-green transition-colors">Galería</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-paradise-green transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Servicios</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-paradise-green transition-colors">Habitaciones de Lujo</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-paradise-green transition-colors">Spa & Wellness</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-paradise-green transition-colors">Gastronomía</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-paradise-green transition-colors">Tours Exclusivos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-paradise-green transition-colors">Eventos</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contacto</h3>
+                    <div class="space-y-3 text-gray-400">
+                        <p><i class="fas fa-map-marker-alt mr-2 text-paradise-green"></i>Avenida del Mar 123, Playa Paraíso</p>
+                        <p><i class="fas fa-phone mr-2 text-paradise-green"></i>+34 900 123 456</p>
+                        <p><i class="fas fa-envelope mr-2 text-paradise-green"></i>info@paradisehotels.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 Paradise Hotels. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('active');
+            });
+        });
+
+        // FAQ functionality
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                answer.classList.add('hidden');
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Change navigation background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-sm');
+            } else {
+                nav.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
