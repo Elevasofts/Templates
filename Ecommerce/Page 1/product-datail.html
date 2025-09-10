@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone 15 Pro Clear Case - Premium Protection | Dealy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dealy-green': '#22c55e',
+                        'dealy-dark': '#1f2937'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .image-zoom {
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-zoom:hover {
+            transform: scale(1.1);
+        }
+        
+        .quantity-input::-webkit-outer-spin-button,
+        .quantity-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        .quantity-input[type=number] {
+            -moz-appearance: textfield;
+        }
+        
+        .color-option {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-option.selected::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 2px solid #22c55e;
+            border-radius: 50%;
+        }
+        
+        .thumbnail {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            opacity: 0.7;
+        }
+        
+        .thumbnail:hover,
+        .thumbnail.active {
+            opacity: 1;
+            border-color: #22c55e;
+        }
+        
+        .sticky-purchase {
+            position: sticky;
+            top: 20px;
+        }
+        
+        @media (max-width: 1024px) {
+            .sticky-purchase {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <div class="w-6 h-6 bg-dealy-green rounded flex items-center justify-center">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-gray-900">dealy</span>
+                    </a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-lg mx-8">
+                    <div class="relative">
+                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        <input type="text" placeholder="Search for cases and accessories..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-dealy-green focus:border-transparent">
+                    </div>
+                </div>
+
+                <!-- Right Icons -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-gray-600 hover:text-gray-900 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </button>
+                    <button class="p-2 text-gray-600 hover:text-gray-900 transition-colors relative">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 6H3m4 7v6a2 2 0 002 2h8a2 2 0 002-2v-6m-10 0v-6a2 2 0 012-2h6a2 2 0 012 2v6m-10 0h10" />
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-dealy-green text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="flex text-sm text-gray-500">
+                <a href="index.html" class="hover:text-gray-700">Home</a>
+                <span class="mx-2">/</span>
+                <a href="products.html" class="hover:text-gray-700">Products</a>
+                <span class="mx-2">/</span>
+                <a href="products.html?category=cases" class="hover:text-gray-700">Phone Cases</a>
+                <span class="mx-2">/</span>
+                <span class="text-gray-900">iPhone 15 Pro Clear Case</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Product Detail -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Product Images -->
+            <div class="space-y-4">
+                <!-- Main Image -->
+                <div class="aspect-square bg-white rounded-2xl overflow-hidden border border-gray-200">
+                    <img id="mainImage" src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                         alt="iPhone 15 Pro Clear Case" 
+                         class="w-full h-full object-cover image-zoom">
+                </div>
+                
+                <!-- Thumbnail Images -->
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="aspect-square bg-white rounded-lg overflow-hidden border-2 border-dealy-green thumbnail active" data-image="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=600">
+                        <img src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=200" 
+                             alt="Front view" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="aspect-square bg-white rounded-lg overflow-hidden border-2 border-gray-200 thumbnail" data-image="https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=600">
+                        <img src="https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=200" 
+                             alt="Side view" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="aspect-square bg-white rounded-lg overflow-hidden border-2 border-gray-200 thumbnail" data-image="https://images.pexels.com/photos/4526416/pexels-photo-4526416.jpeg?auto=compress&cs=tinysrgb&w=600">
+                        <img src="https://images.pexels.com/photos/4526416/pexels-photo-4526416.jpeg?auto=compress&cs=tinysrgb&w=200" 
+                             alt="Back view" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="aspect-square bg-white rounded-lg overflow-hidden border-2 border-gray-200 thumbnail" data-image="https://images.pexels.com/photos/163117/phone-old-year-built-1955-163117.jpeg?auto=compress&cs=tinysrgb&w=600">
+                        <img src="https://images.pexels.com/photos/163117/phone-old-year-built-1955-163117.jpeg?auto=compress&cs=tinysrgb&w=200" 
+                             alt="Detail view" 
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Info & Purchase -->
+            <div class="space-y-8">
+                <!-- Product Header -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full">Best Seller</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">In Stock</span>
+                    </div>
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">iPhone 15 Pro Clear Case - Premium Protection</h1>
+                    <p class="text-gray-600 mb-4">Military-grade drop protection with crystal clear transparency. Compatible with MagSafe and wireless charging.</p>
+                    
+                    <!-- Rating -->
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="flex space-x-1">
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                            </svg>
+                            <svg class="w-5 h-5 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                            </svg>
+                        </div>
+                        <span class="text-sm text-gray-600">4.8 (324 reviews)</span>
+                        <a href="#reviews" class="text-sm text-dealy-green hover:underline">Read reviews</a>
+                    </div>
+                </div>
+
+                <!-- Purchase Options -->
+                <div class="sticky-purchase bg-white rounded-2xl border border-gray-200 p-6 space-y-6">
+                    <!-- Price -->
+                    <div class="flex items-center space-x-4">
+                        <span class="text-3xl font-bold text-gray-900" id="currentPrice">€12.99</span>
+                        <span class="text-lg text-gray-500 line-through" id="originalPrice">€19.99</span>
+                        <span class="bg-red-100 text-red-800 text-sm font-medium px-2 py-1 rounded-full">35% OFF</span>
+                    </div>
+
+                    <!-- Color Selection -->
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-900 mb-3">Color: <span id="selectedColorName">Clear</span></h3>
+                        <div class="flex space-x-3">
+                            <div class="color-option selected w-8 h-8 rounded-full border-2 border-gray-300 bg-transparent" data-color="clear" data-name="Clear" data-price="12.99" data-original="19.99"></div>
+                            <div class="color-option w-8 h-8 rounded-full border-2 border-gray-300 bg-black" data-color="black" data-name="Midnight Black" data-price="14.99" data-original="21.99"></div>
+                            <div class="color-option w-8 h-8 rounded-full border-2 border-gray-300 bg-blue-500" data-color="blue" data-name="Ocean Blue" data-price="14.99" data-original="21.99"></div>
+                            <div class="color-option w-8 h-8 rounded-full border-2 border-gray-300 bg-purple-500" data-color="purple" data-name="Deep Purple" data-price="16.99" data-original="23.99"></div>
+                            <div class="color-option w-8 h-8 rounded-full border-2 border-gray-300 bg-pink-400" data-color="pink" data-name="Rose Pink" data-price="16.99" data-original="23.99"></div>
+                        </div>
+                    </div>
+
+                    <!-- Model Selection -->
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-900 mb-3">Model: <span id="selectedModel">iPhone 15 Pro</span></h3>
+                        <select id="modelSelect" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dealy-green focus:border-transparent">
+                            <option value="iphone-15-pro" data-price-modifier="0">iPhone 15 Pro</option>
+                            <option value="iphone-15-pro-max" data-price-modifier="2">iPhone 15 Pro Max (+€2.00)</option>
+                            <option value="iphone-15" data-price-modifier="-1">iPhone 15 (-€1.00)</option>
+                            <option value="iphone-15-plus" data-price-modifier="1">iPhone 15 Plus (+€1.00)</option>
+                        </select>
+                    </div>
+
+                    <!-- Quantity Selection -->
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-900 mb-3">Quantity</h3>
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center border border-gray-300 rounded-lg">
+                                <button id="decreaseQty" class="p-3 hover:bg-gray-50 transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                                    </svg>
+                                </button>
+                                <input type="number" id="quantity" value="1" min="1" max="10" class="quantity-input w-16 text-center border-0 focus:ring-0">
+                                <button id="increaseQty" class="p-3 hover:bg-gray-50 transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <span class="text-sm text-gray-600">Maximum 10 per order</span>
+                        </div>
+                    </div>
+
+                    <!-- Total Price -->
+                    <div class="border-t pt-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-medium text-gray-900">Total:</span>
+                            <span class="text-2xl font-bold text-gray-900" id="totalPrice">€12.99</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-3">
+                        <button id="addToCartBtn" class="w-full bg-dealy-green text-white py-4 px-6 rounded-lg font-semibold hover:bg-green-600 transition-colors flex items-center justify-center space-x-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 6H3m4 7v6a2 2 0 002 2h8a2 2 0 002-2v-6m-10 0v-6a2 2 0 012-2h6a2 2 0 012 2v6m-10 0h10" />
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="w-full bg-black text-white py-4 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                            Buy Now
+                        </button>
+                        <button id="wishlistBtn" class="w-full border border-gray-300 text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-50 transition-colors flex items-center justify-center space-x-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
+
+                    <!-- Shipping Info -->
+                    <div class="border-t pt-4 space-y-3 text-sm">
+                        <div class="flex items-center space-x-2 text-green-600">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Free shipping on orders over €25</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-gray-600">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Delivery in 2-3 business days</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-gray-600">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                            <span>14-day return policy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Details Tabs -->
+        <div class="mt-16">
+            <div class="border-b border-gray-200">
+                <nav class="flex space-x-8">
+                    <button class="tab-button active py-4 px-1 border-b-2 border-dealy-green font-medium text-sm text-dealy-green" data-tab="description">
+                        Description
+                    </button>
+                    <button class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700" data-tab="specifications">
+                        Specifications
+                    </button>
+                    <button class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700" data-tab="reviews">
+                        Reviews (324)
+                    </button>
+                    <button class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700" data-tab="shipping">
+                        Shipping & Returns
+                    </button>
+                </nav>
+            </div>
+
+            <div class="py-8">
+                <!-- Description Tab -->
+                <div id="description" class="tab-content">
+                    <div class="prose max-w-none">
+                        <h3 class="text-lg font-semibold mb-4">Premium Protection for Your iPhone 15 Pro</h3>
+                        <p class="text-gray-600 mb-4">
+                            Our iPhone 15 Pro Clear Case offers the perfect balance of protection and style. Made from high-quality materials, 
+                            this case provides military-grade drop protection while maintaining the sleek design of your device.
+                        </p>
+                        <h4 class="font-semibold mb-2">Key Features:</h4>
+                        <ul class="list-disc list-inside space-y-1 text-gray-600 mb-4">
+                            <li>Military-grade drop protection up to 10 feet</li>
+                            <li>Crystal clear transparency showcases your iPhone's design</li>
+                            <li>MagSafe compatible for wireless charging</li>
+                            <li>Raised edges protect camera and screen</li>
+                            <li>Anti-yellowing technology keeps case clear</li>
+                            <li>Easy installation and removal</li>
+                        </ul>
+                        <p class="text-gray-600">
+                            Perfect for everyday use, this case combines durability with elegance, ensuring your iPhone 15 Pro 
+                            stays protected without compromising on style.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Specifications Tab -->
+                <div id="specifications" class="tab-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold mb-4">Technical Specifications</h4>
+                            <dl class="space-y-2">
+                                <div class="flex justify-between">
+                                    <dt class="text-gray-600">Material:</dt>
+                                    <dd class="font-medium">TPU + PC</dd>
+                                </div>
+                                <div class="flex justify-between">
+                                    <dt class="text-gray-600">Drop Protection:</dt>
+                                    <dd class="font-medium">10 feet / 3 meters</dd>
+                                </div>
+                                <div class="flex justify-between">
+                                    <dt class="text-gray-600">Weight:</dt>
+                                    <dd class="font-medium">45g</dd>
+                                </div>
+                                <div class="flex justify-between">
+                                    <dt class="text-gray-600">Thickness:</dt>
+                                    <dd class="font-medium">1.2mm</dd>
+                                </div>
+                                <div class="flex justify-between">
+                                    <dt class="text-gray-600">Wireless Charging:</dt>
+                                    <dd class="font-medium">Compatible</dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-4">Compatibility</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• iPhone 15 Pro (6.1")</li>
+                                <li>• MagSafe accessories</li>
+                                <li>• Wireless chargers</li>
+                                <li>• Car mounts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div id="reviews" class="tab-content hidden">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-semibold">Customer Reviews</h4>
+                            <button class="bg-dealy-green text-white px-4 py-2 rounded-lg text-sm hover:bg-green-600 transition-colors">
+                                Write a Review
+                            </button>
+                        </div>
+                        
+                        <!-- Review Summary -->
+                        <div class="bg-gray-50 rounded-lg p-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <span class="text-3xl font-bold">4.8</span>
+                                <div>
+                                    <div class="flex space-x-1 mb-1">
+                                        <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-gray-600">Based on 324 reviews</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Individual Reviews -->
+                        <div class="space-y-6">
+                            <div class="border-b border-gray-200 pb-6">
+                                <div class="flex items-center justify-between mb-2">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="font-medium">Sarah M.</span>
+                                        <div class="flex space-x-1">
+                                            <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                            <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                            <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                            <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                            <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-sm text-gray-500">2 days ago</span>
+                                </div>
+                                <p class="text-gray-600">Perfect case! Crystal clear and great protection. Dropped my phone twice and no damage at all. Highly recommend!</p>
+                            </div>
+                            
+                            <div class="border-b border-gray-200 pb-6">
+                                <div class="flex items-center justify-between mb-2">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="font-medium">Mike R.</span>
+                                        <div class="flex space-x-1">
+                                            <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                            <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                            <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                            <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                            <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-sm text-gray-500">1 week ago</span>
+                                </div>
+                                <p class="text-gray-600">Good quality case, fits perfectly. MagSafe works great. Only minor issue is it attracts fingerprints easily.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping Tab -->
+                <div id="shipping" class="tab-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold mb-4">Shipping Information</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <h5 class="font-medium mb-2">Free Shipping</h5>
+                                    <p class="text-gray-600 text-sm">Free standard shipping on orders over €25. Delivery in 2-3 business days.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium mb-2">Express Shipping</h5>
+                                    <p class="text-gray-600 text-sm">€4.99 for next-day delivery. Order before 2 PM for same-day processing.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium mb-2">International Shipping</h5>
+                                    <p class="text-gray-600 text-sm">Available to EU countries. Delivery in 5-7 business days. Customs fees may apply.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-4">Returns & Exchanges</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <h5 class="font-medium mb-2">14-Day Return Policy</h5>
+                                    <p class="text-gray-600 text-sm">Return items within 14 days of delivery for a full refund. Items must be in original condition.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium mb-2">Easy Returns</h5>
+                                    <p class="text-gray-600 text-sm">Print a prepaid return label from your account. Drop off at any post office or schedule a pickup.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium mb-2">Exchanges</h5>
+                                    <p class="text-gray-600 text-sm">Free exchanges for different colors or sizes. Contact customer service to arrange an exchange.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Added to Cart!</h3>
+                <p class="text-gray-600 mb-6">Your item has been successfully added to your cart.</p>
+                <div class="flex space-x-3">
+                    <button id="continueShopping" class="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                        Continue Shopping
+                    </button>
+                    <button class="flex-1 bg-dealy-green text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors">
+                        View Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.getElementById('mainImage');
+            const colorOptions = document.querySelectorAll('.color-option');
+            const selectedColorName = document.getElementById('selectedColorName');
+            const modelSelect = document.getElementById('modelSelect');
+            const selectedModel = document.getElementById('selectedModel');
+            const quantityInput = document.getElementById('quantity');
+            const decreaseBtn = document.getElementById('decreaseQty');
+            const increaseBtn = document.getElementById('increaseQty');
+            const currentPrice = document.getElementById('currentPrice');
+            const originalPrice = document.getElementById('originalPrice');
+            const totalPrice = document.getElementById('totalPrice');
+            const addToCartBtn = document.getElementById('addToCartBtn');
+            const wishlistBtn = document.getElementById('wishlistBtn');
+            const cartCount = document.getElementById('cartCount');
+            const successModal = document.getElementById('successModal');
+            const continueShopping = document.getElementById('continueShopping');
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            let basePrice = 12.99;
+            let baseOriginalPrice = 19.99;
+            let modelModifier = 0;
+
+            // Thumbnail image switching
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    thumbnails.forEach(t => t.classList.remove('active', 'border-dealy-green'));
+                    thumbnails.forEach(t => t.classList.add('border-gray-200'));
+                    
+                    this.classList.add('active', 'border-dealy-green');
+                    this.classList.remove('border-gray-200');
+                    
+                    mainImage.src = this.dataset.image;
+                });
+            });
+
+            // Color selection
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    colorOptions.forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    selectedColorName.textContent = this.dataset.name;
+                    basePrice = parseFloat(this.dataset.price);
+                    baseOriginalPrice = parseFloat(this.dataset.original);
+                    updatePricing();
+                });
+            });
+
+            // Model selection
+            modelSelect.addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex];
+                selectedModel.textContent = selectedOption.text.split(' (')[0];
+                modelModifier = parseFloat(selectedOption.dataset.priceModifier);
+                updatePricing();
+            });
+
+            // Quantity controls
+            decreaseBtn.addEventListener('click', function() {
+                const currentQty = parseInt(quantityInput.value);
+                if (currentQty > 1) {
+                    quantityInput.value = currentQty - 1;
+                    updatePricing();
+                }
+            });
+
+            increaseBtn.addEventListener('click', function() {
+                const currentQty = parseInt(quantityInput.value);
+                if (currentQty < 10) {
+                    quantityInput.value = currentQty + 1;
+                    updatePricing();
+                }
+            });
+
+            quantityInput.addEventListener('input', function() {
+                let value = parseInt(this.value);
+                if (isNaN(value) || value < 1) value = 1;
+                if (value > 10) value = 10;
+                this.value = value;
+                updatePricing();
+            });
+
+            // Update pricing
+            function updatePricing() {
+                const finalPrice = basePrice + modelModifier;
+                const finalOriginalPrice = baseOriginalPrice + modelModifier;
+                const quantity = parseInt(quantityInput.value);
+                const total = finalPrice * quantity;
+
+                currentPrice.textContent = `€${finalPrice.toFixed(2)}`;
+                originalPrice.textContent = `€${finalOriginalPrice.toFixed(2)}`;
+                totalPrice.textContent = `€${total.toFixed(2)}`;
+            }
+
+            // Add to cart
+            addToCartBtn.addEventListener('click', function() {
+                const currentCount = parseInt(cartCount.textContent);
+                const quantity = parseInt(quantityInput.value);
+                cartCount.textContent = currentCount + quantity;
+                
+                // Show success modal
+                successModal.classList.remove('hidden');
+                
+                // Add animation to button
+                this.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg><span>Adding...</span>';
+                
+                setTimeout(() => {
+                    this.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Added!</span>';
+                    this.classList.add('bg-green-600');
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 6H3m4 7v6a2 2 0 002 2h8a2 2 0 002-2v-6m-10 0v-6a2 2 0 012-2h6a2 2 0 012 2v6m-10 0h10"></path></svg><span>Add to Cart</span>';
+                        this.classList.remove('bg-green-600');
+                    }, 2000);
+                }, 1000);
+            });
+
+            // Wishlist toggle
+            wishlistBtn.addEventListener('click', function() {
+                const isWishlisted = this.classList.contains('wishlisted');
+                
+                if (isWishlisted) {
+                    this.classList.remove('wishlisted', 'bg-red-50', 'text-red-600', 'border-red-200');
+                    this.classList.add('border-gray-300', 'text-gray-700');
+                    this.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg><span>Add to Wishlist</span>';
+                } else {
+                    this.classList.add('wishlisted', 'bg-red-50', 'text-red-600', 'border-red-200');
+                    this.classList.remove('border-gray-300', 'text-gray-700');
+                    this.innerHTML = '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg><span>Added to Wishlist</span>';
+                }
+            });
+
+            // Modal controls
+            continueShopping.addEventListener('click', function() {
+                successModal.classList.add('hidden');
+            });
+
+            successModal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.add('hidden');
+                }
+            });
+
+            // Tab functionality
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+                    
+                    // Update button states
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active', 'border-dealy-green', 'text-dealy-green');
+                        btn.classList.add('border-transparent', 'text-gray-500');
+                    });
+                    
+                    this.classList.add('active', 'border-dealy-green', 'text-dealy-green');
+                    this.classList.remove('border-transparent', 'text-gray-500');
+                    
+                    // Update content
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    document.getElementById(tabId).classList.remove('hidden');
+                });
+            });
+
+            // Initialize pricing
+            updatePricing();
+        });
+    </script>
+</body>
+</html>

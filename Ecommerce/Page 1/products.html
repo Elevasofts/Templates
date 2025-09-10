@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Dealy Mobile Accessories & Cases</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dealy-green': '#22c55e',
+                        'dealy-dark': '#1f2937'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .filter-sidebar {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .filter-sidebar.hidden-mobile {
+            transform: translateX(-100%);
+        }
+        
+        @media (min-width: 1024px) {
+            .filter-sidebar.hidden-mobile {
+                transform: translateX(0);
+            }
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .category-badge {
+            transition: all 0.2s ease;
+        }
+        
+        .category-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .price-range-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            border-radius: 3px;
+            background: #e5e7eb;
+            outline: none;
+        }
+        
+        .price-range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #22c55e;
+            cursor: pointer;
+        }
+        
+        .price-range-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #22c55e;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <div class="w-6 h-6 bg-dealy-green rounded flex items-center justify-center">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-gray-900">dealy</span>
+                    </a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-lg mx-8">
+                    <div class="relative">
+                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        <input type="text" id="searchInput" placeholder="Search products..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-dealy-green focus:border-transparent">
+                    </div>
+                </div>
+
+                <!-- Right Icons -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-gray-600 hover:text-gray-900 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </button>
+                    <button class="p-2 text-gray-600 hover:text-gray-900 transition-colors relative">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 6H3m4 7v6a2 2 0 002 2h8a2 2 0 002-2v-6m-10 0v-6a2 2 0 012-2h6a2 2 0 012 2v6m-10 0h10" />
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-dealy-green text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </button>
+                    <button class="bg-black text-white px-4 py-2 rounded-md text-sm hover:bg-gray-800 transition-colors">
+                        Customize
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2 text-sm">
+                    <li>
+                        <a href="index.html" class="text-gray-500 hover:text-gray-700">Home</a>
+                    </li>
+                    <li>
+                        <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    </li>
+                    <li>
+                        <span class="text-gray-900 font-medium">Products</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900">All Products</h1>
+                    <p class="text-gray-600 mt-2">Discover our complete collection of mobile accessories and cases</p>
+                </div>
+                <button id="mobileFilterBtn" class="lg:hidden bg-gray-100 text-gray-700 px-4 py-2 rounded-md flex items-center space-x-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.707A1 1 0 013 7V4z" />
+                    </svg>
+                    <span>Filters</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex gap-8">
+            <!-- Sidebar Filters -->
+            <aside id="filterSidebar" class="filter-sidebar w-80 bg-white rounded-lg shadow-sm p-6 h-fit sticky top-24 lg:block hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-lg font-semibold text-gray-900">Filters</h2>
+                    <button id="clearFilters" class="text-sm text-dealy-green hover:text-green-600">Clear All</button>
+                </div>
+
+                <!-- Categories -->
+                <div class="mb-8">
+                    <h3 class="text-sm font-medium text-gray-900 mb-4">Categories</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="category-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="cases" checked>
+                            <span class="ml-3 text-sm text-gray-700">Phone Cases</span>
+                            <span class="ml-auto text-xs text-gray-500">(245)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="category-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="chargers">
+                            <span class="ml-3 text-sm text-gray-700">Chargers</span>
+                            <span class="ml-auto text-xs text-gray-500">(89)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="category-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="headphones">
+                            <span class="ml-3 text-sm text-gray-700">Headphones</span>
+                            <span class="ml-auto text-xs text-gray-500">(67)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="category-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="accessories">
+                            <span class="ml-3 text-sm text-gray-700">Accessories</span>
+                            <span class="ml-auto text-xs text-gray-500">(134)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="category-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="screen-protectors">
+                            <span class="ml-3 text-sm text-gray-700">Screen Protectors</span>
+                            <span class="ml-auto text-xs text-gray-500">(78)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Brands -->
+                <div class="mb-8">
+                    <h3 class="text-sm font-medium text-gray-900 mb-4">Brands</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="brand-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="apple">
+                            <span class="ml-3 text-sm text-gray-700">Apple</span>
+                            <span class="ml-auto text-xs text-gray-500">(156)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="brand-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="samsung">
+                            <span class="ml-3 text-sm text-gray-700">Samsung</span>
+                            <span class="ml-auto text-xs text-gray-500">(134)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="brand-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="huawei">
+                            <span class="ml-3 text-sm text-gray-700">Huawei</span>
+                            <span class="ml-auto text-xs text-gray-500">(89)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="brand-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="oneplus">
+                            <span class="ml-3 text-sm text-gray-700">OnePlus</span>
+                            <span class="ml-auto text-xs text-gray-500">(45)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="brand-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="google">
+                            <span class="ml-3 text-sm text-gray-700">Google</span>
+                            <span class="ml-auto text-xs text-gray-500">(34)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Price Range -->
+                <div class="mb-8">
+                    <h3 class="text-sm font-medium text-gray-900 mb-4">Price Range</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600">€<span id="minPrice">0</span></span>
+                            <span class="text-sm text-gray-600">€<span id="maxPrice">100</span></span>
+                        </div>
+                        <input type="range" id="priceRange" class="price-range-slider w-full" min="0" max="100" value="100">
+                        <div class="flex space-x-2">
+                            <input type="number" id="minPriceInput" class="w-20 px-2 py-1 border border-gray-300 rounded text-sm" placeholder="Min" value="0">
+                            <span class="text-gray-500">-</span>
+                            <input type="number" id="maxPriceInput" class="w-20 px-2 py-1 border border-gray-300 rounded text-sm" placeholder="Max" value="100">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rating -->
+                <div class="mb-8">
+                    <h3 class="text-sm font-medium text-gray-900 mb-4">Customer Rating</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center">
+                            <input type="radio" name="rating" class="text-dealy-green focus:ring-dealy-green" value="5">
+                            <div class="ml-3 flex items-center">
+                                <div class="flex text-yellow-400">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                </div>
+                                <span class="ml-2 text-sm text-gray-600">5 Stars</span>
+                            </div>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="rating" class="text-dealy-green focus:ring-dealy-green" value="4">
+                            <div class="ml-3 flex items-center">
+                                <div class="flex text-yellow-400">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                </div>
+                                <span class="ml-2 text-sm text-gray-600">4+ Stars</span>
+                            </div>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="rating" class="text-dealy-green focus:ring-dealy-green" value="3">
+                            <div class="ml-3 flex items-center">
+                                <div class="flex text-yellow-400">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                </div>
+                                <span class="ml-2 text-sm text-gray-600">3+ Stars</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Availability -->
+                <div class="mb-8">
+                    <h3 class="text-sm font-medium text-gray-900 mb-4">Availability</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="in-stock">
+                            <span class="ml-3 text-sm text-gray-700">In Stock</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="on-sale">
+                            <span class="ml-3 text-sm text-gray-700">On Sale</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="new-arrivals">
+                            <span class="ml-3 text-sm text-gray-700">New Arrivals</span>
+                        </label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Products Grid -->
+            <main class="flex-1">
+                <!-- Category Badges -->
+                <div class="mb-8">
+                    <div class="flex flex-wrap gap-3">
+                        <button class="category-badge bg-black text-white px-4 py-2 rounded-full text-sm font-medium" data-category="all">
+                            All Products
+                        </button>
+                        <button class="category-badge bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200" data-category="cases">
+                            Phone Cases
+                        </button>
+                        <button class="category-badge bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200" data-category="chargers">
+                            Chargers
+                        </button>
+                        <button class="category-badge bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200" data-category="headphones">
+                            Headphones
+                        </button>
+                        <button class="category-badge bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200" data-category="accessories">
+                            Accessories
+                        </button>
+                        <button class="category-badge bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200" data-category="screen-protectors">
+                            Screen Protectors
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sort and View Options -->
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-sm text-gray-600">
+                            Showing <span id="productCount">24</span> of <span id="totalProducts">613</span> products
+                        </span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <select id="sortSelect" class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-dealy-green focus:border-transparent">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="newest">Newest First</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                        <div class="flex border border-gray-300 rounded-md">
+                            <button id="gridView" class="p-2 bg-gray-100 text-gray-700 rounded-l-md">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                </svg>
+                            </button>
+                            <button id="listView" class="p-2 text-gray-700 rounded-r-md hover:bg-gray-100">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Product Card 1 -->
+                    <div class="product-card bg-white rounded-2xl shadow-sm overflow-hidden" data-category="cases" data-brand="apple" data-price="14.99" data-rating="5">
+                        <div class="relative">
+                            <img src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="iPhone 15 Clear Case" 
+                                 class="w-full h-48 object-cover">
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full font-medium">-20%</span>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <button class="p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors">
+                                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-gray-500 uppercase tracking-wide">Apple</span>
+                                <div class="flex text-yellow-400">
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2 text-sm leading-tight">iPhone 15 Pro Max Clear Case</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-lg font-bold text-gray-900">€11.99</span>
+                                    <span class="text-sm text-gray-500 line-through">€14.99</span>
+                                </div>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-transparent border border-gray-300 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-black rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                </div>
+                            </div>
+                            <button class="w-full bg-black text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="product-card bg-white rounded-2xl shadow-sm overflow-hidden" data-category="chargers" data-brand="samsung" data-price="24.99" data-rating="4">
+                        <div class="relative">
+                            <img src="https://images.pexels.com/photos/163117/phone-old-year-built-1955-163117.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="Wireless Fast Charger" 
+                                 class="w-full h-48 object-cover">
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full font-medium">Best Seller</span>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <button class="p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors">
+                                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-gray-500 uppercase tracking-wide">Samsung</span>
+                                <div class="flex text-yellow-400">
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2 text-sm leading-tight">15W Wireless Fast Charger Pro</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-lg font-bold text-gray-900">€24.99</span>
+                                </div>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-white border border-gray-300 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-800 rounded-full"></div>
+                                </div>
+                            </div>
+                            <button class="w-full bg-black text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="product-card bg-white rounded-2xl shadow-sm overflow-hidden" data-category="accessories" data-brand="apple" data-price="8.99" data-rating="4">
+                        <div class="relative">
+                            <img src="https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="Phone Stand" 
+                                 class="w-full h-48 object-cover">
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-orange-500 text-white text-xs px-2 py-1 rounded-full font-medium">New</span>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <button class="p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors">
+                                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-gray-500 uppercase tracking-wide">Universal</span>
+                                <div class="flex text-yellow-400">
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2 text-sm leading-tight">Adjustable Phone Stand</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-lg font-bold text-gray-900">€8.99</span>
+                                </div>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-rose-400 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-400 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                                </div>
+                            </div>
+                            <button class="w-full bg-black text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="product-card bg-white rounded-2xl shadow-sm overflow-hidden" data-category="screen-protectors" data-brand="apple" data-price="6.99" data-rating="5">
+                        <div class="relative">
+                            <img src="https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="Screen Protector" 
+                                 class="w-full h-48 object-cover">
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full font-medium">Sale</span>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <button class="p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors">
+                                    <svg class="w-4 h-4 text-red-500" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-gray-500 uppercase tracking-wide">Apple</span>
+                                <div class="flex text-yellow-400">
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2 text-sm leading-tight">Tempered Glass Screen Protector</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-lg font-bold text-gray-900">€6.99</span>
+                                </div>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-transparent border border-gray-300 rounded-full"></div>
+                                </div>
+                            </div>
+                            <button class="w-full bg-black text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Additional Product Cards (repeat pattern) -->
+                    <div class="product-card bg-white rounded-2xl shadow-sm overflow-hidden" data-category="headphones" data-brand="samsung" data-price="49.99" data-rating="4">
+                        <div class="relative">
+                            <img src="https://images.pexels.com/photos/4526416/pexels-photo-4526416.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="Wireless Earbuds" 
+                                 class="w-full h-48 object-cover">
+                            <div class="absolute top-3 right-3">
+                                <button class="p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors">
+                                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-gray-500 uppercase tracking-wide">Samsung</span>
+                                <div class="flex text-yellow-400">
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2 text-sm leading-tight">Galaxy Buds Pro Wireless Earbuds</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-lg font-bold text-gray-900">€49.99</span>
+                                </div>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-white border border-gray-300 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-black rounded-full"></div>
+                                    <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                </div>
+                            </div>
+                            <button class="w-full bg-black text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-2xl shadow-sm overflow-hidden" data-category="cases" data-brand="huawei" data-price="12.99" data-rating="4">
+                        <div class="relative">
+                            <img src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="Huawei Case" 
+                                 class="w-full h-48 object-cover">
+                            <div class="absolute top-3 right-3">
+                                <button class="p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors">
+                                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-gray-500 uppercase tracking-wide">Huawei</span>
+                                <div class="flex text-yellow-400">
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2 text-sm leading-tight">Huawei P50 Pro Leather Case</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-lg font-bold text-gray-900">€12.99</span>
+                                </div>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-black rounded-full"></div>
+                                    <div class="w-3 h-3 bg-brown-600 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-900 rounded-full"></div>
+                                </div>
+                            </div>
+                            <button class="w-full bg-black text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-2xl shadow-sm overflow-hidden" data-category="accessories" data-brand="oneplus" data-price="19.99" data-rating="5">
+                        <div class="relative">
+                            <img src="https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="Car Mount" 
+                                 class="w-full h-48 object-cover">
+                            <div class="absolute top-3 right-3">
+                                <button class="p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors">
+                                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-gray-500 uppercase tracking-wide">Universal</span>
+                                <div class="flex text-yellow-400">
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2 text-sm leading-tight">Magnetic Car Phone Mount</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-lg font-bold text-gray-900">€19.99</span>
+                                </div>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-black rounded-full"></div>
+                                    <div class="w-3 h-3 bg-silver rounded-full"></div>
+                                </div>
+                            </div>
+                            <button class="w-full bg-black text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-2xl shadow-sm overflow-hidden" data-category="chargers" data-brand="google" data-price="34.99" data-rating="4">
+                        <div class="relative">
+                            <img src="https://images.pexels.com/photos/163117/phone-old-year-built-1955-163117.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="USB-C Charger" 
+                                 class="w-full h-48 object-cover">
+                            <div class="absolute top-3 right-3">
+                                <button class="p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors">
+                                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-gray-500 uppercase tracking-wide">Google</span>
+                                <div class="flex text-yellow-400">
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                    <svg class="w-3 h-3 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2 text-sm leading-tight">30W USB-C Fast Charger</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-lg font-bold text-gray-900">€34.99</span>
+                                </div>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-white border border-gray-300 rounded-full"></div>
+                                </div>
+                            </div>
+                            <button class="w-full bg-black text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="text-center mt-12">
+                    <button id="loadMoreBtn" class="bg-gray-100 text-gray-700 px-8 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors">
+                        Load More Products
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Mobile Filter Overlay -->
+    <div id="mobileFilterOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden lg:hidden">
+        <div class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobileFilterPanel">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-lg font-semibold text-gray-900">Filters</h2>
+                    <button id="closeMobileFilter" class="p-2 text-gray-400 hover:text-gray-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <!-- Same filter content as sidebar -->
+                <div class="space-y-8 overflow-y-auto h-full pb-20">
+                    <!-- Categories -->
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-900 mb-4">Categories</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="category-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="cases" checked>
+                                <span class="ml-3 text-sm text-gray-700">Phone Cases</span>
+                                <span class="ml-auto text-xs text-gray-500">(245)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="category-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="chargers">
+                                <span class="ml-3 text-sm text-gray-700">Chargers</span>
+                                <span class="ml-auto text-xs text-gray-500">(89)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="category-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="headphones">
+                                <span class="ml-3 text-sm text-gray-700">Headphones</span>
+                                <span class="ml-auto text-xs text-gray-500">(67)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="category-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="accessories">
+                                <span class="ml-3 text-sm text-gray-700">Accessories</span>
+                                <span class="ml-auto text-xs text-gray-500">(134)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="category-filter rounded border-gray-300 text-dealy-green focus:ring-dealy-green" value="screen-protectors">
+                                <span class="ml-3 text-sm text-gray-700">Screen Protectors</span>
+                                <span class="ml-auto text-xs text-gray-500">(78)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile filter functionality
+            const mobileFilterBtn = document.getElementById('mobileFilterBtn');
+            const mobileFilterOverlay = document.getElementById('mobileFilterOverlay');
+            const mobileFilterPanel = document.getElementById('mobileFilterPanel');
+            const closeMobileFilter = document.getElementById('closeMobileFilter');
+
+            function openMobileFilter() {
+                mobileFilterOverlay.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileFilterPanel.classList.remove('translate-x-full');
+                }, 10);
+            }
+
+            function closeMobileFilterPanel() {
+                mobileFilterPanel.classList.add('translate-x-full');
+                setTimeout(() => {
+                    mobileFilterOverlay.classList.add('hidden');
+                }, 300);
+            }
+
+            mobileFilterBtn.addEventListener('click', openMobileFilter);
+            closeMobileFilter.addEventListener('click', closeMobileFilterPanel);
+            mobileFilterOverlay.addEventListener('click', function(e) {
+                if (e.target === mobileFilterOverlay) {
+                    closeMobileFilterPanel();
+                }
+            });
+
+            // Category badge functionality
+            const categoryBadges = document.querySelectorAll('.category-badge');
+            const productCards = document.querySelectorAll('.product-card');
+
+            categoryBadges.forEach(badge => {
+                badge.addEventListener('click', function() {
+                    // Update active badge
+                    categoryBadges.forEach(b => {
+                        b.classList.remove('bg-black', 'text-white');
+                        b.classList.add('bg-gray-100', 'text-gray-700');
+                    });
+                    this.classList.add('bg-black', 'text-white');
+                    this.classList.remove('bg-gray-100', 'text-gray-700');
+
+                    // Filter products
+                    const category = this.dataset.category;
+                    filterProducts(category);
+                });
+            });
+
+            function filterProducts(category) {
+                let visibleCount = 0;
+                productCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                document.getElementById('productCount').textContent = visibleCount;
+            }
+
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                let visibleCount = 0;
+                
+                productCards.forEach(card => {
+                    const productName = card.querySelector('h3').textContent.toLowerCase();
+                    const brand = card.querySelector('.text-xs').textContent.toLowerCase();
+                    
+                    if (productName.includes(searchTerm) || brand.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                document.getElementById('productCount').textContent = visibleCount;
+            });
+
+            // Sort functionality
+            const sortSelect = document.getElementById('sortSelect');
+            sortSelect.addEventListener('change', function() {
+                const sortBy = this.value;
+                const productsGrid = document.getElementById('productsGrid');
+                const cards = Array.from(productCards);
+
+                cards.sort((a, b) => {
+                    switch (sortBy) {
+                        case 'price-low':
+                            return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+                        case 'price-high':
+                            return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+                        case 'rating':
+                            return parseInt(b.dataset.rating) - parseInt(a.dataset.rating);
+                        case 'newest':
+                            // Random order for demo
+                            return Math.random() - 0.5;
+                        default:
+                            return 0;
+                    }
+                });
+
+                // Re-append sorted cards
+                cards.forEach(card => productsGrid.appendChild(card));
+            });
+
+            // Price range functionality
+            const priceRange = document.getElementById('priceRange');
+            const minPriceSpan = document.getElementById('minPrice');
+            const maxPriceSpan = document.getElementById('maxPrice');
+            const minPriceInput = document.getElementById('minPriceInput');
+            const maxPriceInput = document.getElementById('maxPriceInput');
+
+            priceRange.addEventListener('input', function() {
+                maxPriceSpan.textContent = this.value;
+                maxPriceInput.value = this.value;
+                filterByPrice();
+            });
+
+            minPriceInput.addEventListener('input', function() {
+                minPriceSpan.textContent = this.value;
+                filterByPrice();
+            });
+
+            maxPriceInput.addEventListener('input', function() {
+                maxPriceSpan.textContent = this.value;
+                priceRange.value = this.value;
+                filterByPrice();
+            });
+
+            function filterByPrice() {
+                const minPrice = parseFloat(minPriceInput.value) || 0;
+                const maxPrice = parseFloat(maxPriceInput.value) || 100;
+                let visibleCount = 0;
+
+                productCards.forEach(card => {
+                    const price = parseFloat(card.dataset.price);
+                    if (price >= minPrice && price <= maxPrice) {
+                        if (card.style.display !== 'none') {
+                            visibleCount++;
+                        }
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            // Clear filters
+            const clearFilters = document.getElementById('clearFilters');
+            clearFilters.addEventListener('click', function() {
+                // Reset all checkboxes
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+                document.querySelectorAll('input[type="radio"]').forEach(rb => rb.checked = false);
+                
+                // Reset price range
+                priceRange.value = 100;
+                minPriceInput.value = 0;
+                maxPriceInput.value = 100;
+                minPriceSpan.textContent = '0';
+                maxPriceSpan.textContent = '100';
+                
+                // Reset search
+                searchInput.value = '';
+                
+                // Show all products
+                productCards.forEach(card => card.style.display = 'block');
+                document.getElementById('productCount').textContent = productCards.length;
+                
+                // Reset category badges
+                categoryBadges.forEach(badge => {
+                    badge.classList.remove('bg-black', 'text-white');
+                    badge.classList.add('bg-gray-100', 'text-gray-700');
+                });
+                categoryBadges[0].classList.add('bg-black', 'text-white');
+                categoryBadges[0].classList.remove('bg-gray-100', 'text-gray-700');
+            });
+
+            // Load more functionality
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            loadMoreBtn.addEventListener('click', function() {
+                // Simulate loading more products
+                this.textContent = 'Loading...';
+                setTimeout(() => {
+                    this.textContent = 'Load More Products';
+                    // In a real app, you would load more products here
+                }, 1000);
+            });
+
+            // View toggle functionality
+            const gridView = document.getElementById('gridView');
+            const listView = document.getElementById('listView');
+            const productsGrid = document.getElementById('productsGrid');
+
+            gridView.addEventListener('click', function() {
+                this.classList.add('bg-gray-100');
+                listView.classList.remove('bg-gray-100');
+                productsGrid.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6';
+            });
+
+            listView.addEventListener('click', function() {
+                this.classList.add('bg-gray-100');
+                gridView.classList.remove('bg-gray-100');
+                productsGrid.className = 'grid grid-cols-1 gap-6';
+            });
+
+            // Add to cart functionality
+            document.querySelectorAll('.product-card button').forEach(button => {
+                if (button.textContent.includes('Add to Cart')) {
+                    button.addEventListener('click', function() {
+                        const originalText = this.textContent;
+                        this.textContent = 'Added!';
+                        this.classList.add('bg-dealy-green');
+                        this.classList.remove('bg-black');
+                        
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                            this.classList.remove('bg-dealy-green');
+                            this.classList.add('bg-black');
+                        }, 1500);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
