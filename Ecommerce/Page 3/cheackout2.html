@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Minimal Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #111827;
+            box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.1);
+        }
+        
+        .payment-method {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .payment-method:hover {
+            border-color: #d1d5db;
+        }
+        
+        .payment-method.selected {
+            border-color: #111827;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-inter">
+    <!-- Navigation -->
+    <nav class="w-full py-6 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-light text-gray-900 hover:text-gray-700 transition-colors">
+                        Minimal
+                    </a>
+                </div>
+
+                <!-- Checkout Title -->
+                <div class="text-center">
+                    <h1 class="text-lg font-medium text-gray-900">Checkout</h1>
+                </div>
+
+                <!-- Empty div for balance -->
+                <div class="w-20"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Content -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-12">
+                <!-- Checkout Form -->
+                <div class="lg:col-span-7">
+                    <div class="space-y-12">
+                        
+                        <!-- Contact Information -->
+                        <div>
+                            <h3 class="text-lg font-light text-gray-900 mb-8">Contact Information</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-3">First Name</label>
+                                    <input type="text" class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" placeholder="John">
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-3">Last Name</label>
+                                    <input type="text" class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" placeholder="Doe">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm text-gray-600 mb-3">Email Address</label>
+                                    <input type="email" class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" placeholder="john@example.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Shipping Address -->
+                        <div>
+                            <h3 class="text-lg font-light text-gray-900 mb-8">Shipping Address</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm text-gray-600 mb-3">Address</label>
+                                    <input type="text" class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" placeholder="123 Main Street">
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-3">City</label>
+                                    <input type="text" class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" placeholder="New York">
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-3">ZIP Code</label>
+                                    <input type="text" class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" placeholder="10001">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm text-gray-600 mb-3">Country</label>
+                                    <input type="text" class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" placeholder="United States">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Shipping Method -->
+                        <div>
+                            <h3 class="text-lg font-light text-gray-900 mb-8">Shipping Method</h3>
+                            <div class="space-y-4">
+                                <label class="payment-method flex items-center justify-between py-4 border-b border-gray-100 cursor-pointer">
+                                    <input type="radio" name="shipping" value="standard" class="mr-3" checked>
+                                    <div class="flex-1 flex items-center justify-between">
+                                        <div>
+                                            <span class="text-gray-900">Standard Shipping</span>
+                                            <p class="text-sm text-gray-500">5-7 business days</p>
+                                        </div>
+                                        <span class="text-gray-900">$5.99</span>
+                                    </div>
+                                </label>
+                                <label class="payment-method flex items-center justify-between py-4 border-b border-gray-100 cursor-pointer">
+                                    <input type="radio" name="shipping" value="express" class="mr-3">
+                                    <div class="flex-1 flex items-center justify-between">
+                                        <div>
+                                            <span class="text-gray-900">Express Shipping</span>
+                                            <p class="text-sm text-gray-500">2-3 business days</p>
+                                        </div>
+                                        <span class="text-gray-900">$12.99</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div>
+                            <h3 class="text-lg font-light text-gray-900 mb-8">Payment</h3>
+                            <div class="space-y-4 mb-8">
+                                <label class="payment-method selected flex items-center py-4 border-b border-gray-100 cursor-pointer">
+                                    <input type="radio" name="payment" value="card" class="mr-3" checked>
+                                    <span class="text-gray-900">Credit Card</span>
+                                </label>
+                                <label class="payment-method flex items-center py-4 border-b border-gray-100 cursor-pointer">
+                                    <input type="radio" name="payment" value="paypal" class="mr-3">
+                                    <span class="text-gray-900">PayPal</span>
+                                </label>
+                            </div>
+
+                            <!-- Card Details -->
+                            <div id="card-details" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-3">Card Number</label>
+                                    <input type="text" class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" placeholder="1234 5678 9012 3456">
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm text-gray-600 mb-3">Expiry</label>
+                                        <input type="text" class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" placeholder="MM/YY">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-gray-600 mb-3">CVV</label>
+                                        <input type="text" class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" placeholder="123">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="lg:col-span-5 mt-8 lg:mt-0">
+                    <div class="bg-gray-50 p-8 sticky top-8">
+                        <h2 class="text-lg font-light text-gray-900 mb-8">Order Summary</h2>
+                        
+                        <!-- Order Items -->
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-center space-x-4">
+                                <img src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=80" 
+                                     alt="Minimalist Sneaker" 
+                                     class="w-16 h-16 object-cover">
+                                <div class="flex-1">
+                                    <h3 class="text-gray-900 mb-1">Minimalist Sneaker</h3>
+                                    <p class="text-sm text-gray-500">White, Size 42</p>
+                                </div>
+                                <span class="text-gray-900">$89</span>
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <img src="https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&w=80" 
+                                     alt="Classic Watch" 
+                                     class="w-16 h-16 object-cover">
+                                <div class="flex-1">
+                                    <h3 class="text-gray-900 mb-1">Classic Watch</h3>
+                                    <p class="text-sm text-gray-500">Silver</p>
+                                </div>
+                                <span class="text-gray-900">$149</span>
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <img src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=80" 
+                                     alt="Leather Bag" 
+                                     class="w-16 h-16 object-cover">
+                                <div class="flex-1">
+                                    <h3 class="text-gray-900 mb-1">Leather Bag</h3>
+                                    <p class="text-sm text-gray-500">Brown, Medium × 2</p>
+                                </div>
+                                <span class="text-gray-900">$258</span>
+                            </div>
+                        </div>
+
+                        <!-- Order Totals -->
+                        <div class="space-y-4 py-6 border-t border-gray-200">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Subtotal</span>
+                                <span class="text-gray-900">$496</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Shipping</span>
+                                <span class="text-gray-900">$6</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Tax</span>
+                                <span class="text-gray-900">$50</span>
+                            </div>
+                            <div class="border-t border-gray-300 pt-4">
+                                <div class="flex justify-between">
+                                    <span class="text-lg text-gray-900">Total</span>
+                                    <span class="text-lg text-gray-900">$552</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Place Order Button -->
+                        <button class="w-full bg-gray-900 text-white py-4 font-light tracking-wide hover:bg-gray-800 transition-colors">
+                            Place Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Payment method selection
+        document.querySelectorAll('input[name="payment"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Remove selected class from all payment methods
+                document.querySelectorAll('.payment-method').forEach(method => {
+                    method.classList.remove('selected');
+                });
+                
+                // Add selected class to current method
+                this.closest('.payment-method').classList.add('selected');
+                
+                // Show/hide card details
+                const cardDetails = document.getElementById('card-details');
+                if (this.value === 'card') {
+                    cardDetails.style.display = 'block';
+                } else {
+                    cardDetails.style.display = 'none';
+                }
+            });
+        });
+
+        // Form validation and submission
+        document.querySelector('button').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Simulate order processing
+            this.textContent = 'Processing...';
+            this.disabled = true;
+            
+            setTimeout(() => {
+                alert('Order placed successfully!');
+                this.textContent = 'Place Order';
+                this.disabled = false;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

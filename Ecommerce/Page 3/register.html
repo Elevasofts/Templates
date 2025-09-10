@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Minimal Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #111827;
+        }
+        
+        .btn-primary {
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-inter min-h-screen">
+    <!-- Navigation -->
+    <nav class="w-full py-6 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-light text-gray-900 hover:text-gray-700 transition-colors">
+                        Minimal
+                    </a>
+                </div>
+
+                <!-- Back to Shop -->
+                <div>
+                    <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">
+                        ← Back to Shop
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Register Form -->
+    <section class="flex-1 flex items-center justify-center py-16">
+        <div class="max-w-md w-full mx-auto px-4">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl font-light text-gray-900 mb-4">Create Account</h1>
+                <p class="text-gray-600">Join us and start shopping today</p>
+            </div>
+
+            <form class="space-y-8">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-3">First Name</label>
+                        <input type="text" 
+                               class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" 
+                               placeholder="John">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-3">Last Name</label>
+                        <input type="text" 
+                               class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" 
+                               placeholder="Doe">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm text-gray-600 mb-3">Email Address</label>
+                    <input type="email" 
+                           class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" 
+                           placeholder="your@email.com">
+                </div>
+
+                <div>
+                    <label class="block text-sm text-gray-600 mb-3">Password</label>
+                    <input type="password" 
+                           class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" 
+                           placeholder="Create a password">
+                </div>
+
+                <div>
+                    <label class="block text-sm text-gray-600 mb-3">Confirm Password</label>
+                    <input type="password" 
+                           class="form-input w-full px-0 py-3 border-0 border-b border-gray-200 bg-transparent focus:outline-none focus:border-gray-900 focus:ring-0" 
+                           placeholder="Confirm your password">
+                </div>
+
+                <div class="flex items-start">
+                    <input type="checkbox" class="mt-1 mr-3" required>
+                    <label class="text-sm text-gray-600">
+                        I agree to the 
+                        <a href="#" class="text-gray-900 hover:underline">Terms of Service</a> 
+                        and 
+                        <a href="#" class="text-gray-900 hover:underline">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <div class="flex items-start">
+                    <input type="checkbox" class="mt-1 mr-3">
+                    <label class="text-sm text-gray-600">
+                        Subscribe to our newsletter for updates and exclusive offers
+                    </label>
+                </div>
+
+                <button type="submit" 
+                        class="btn-primary w-full bg-gray-900 text-white py-4 font-light tracking-wide hover:bg-gray-800 transition-colors">
+                    Create Account
+                </button>
+            </form>
+
+            <div class="mt-8 text-center">
+                <p class="text-gray-600">
+                    Already have an account? 
+                    <a href="login.html" class="text-gray-900 hover:underline font-medium">Sign in</a>
+                </p>
+            </div>
+
+            <!-- Social Register -->
+            <div class="mt-12">
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-200"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-4 bg-white text-gray-500">Or sign up with</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 grid grid-cols-2 gap-4">
+                    <button class="w-full border border-gray-200 py-3 px-4 hover:border-gray-300 transition-colors">
+                        <span class="text-sm text-gray-700">Google</span>
+                    </button>
+                    <button class="w-full border border-gray-200 py-3 px-4 hover:border-gray-300 transition-colors">
+                        <span class="text-sm text-gray-700">Apple</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = document.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            // Simple password confirmation check
+            const password = document.querySelector('input[type="password"]').value;
+            const confirmPassword = document.querySelectorAll('input[type="password"]')[1].value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            button.textContent = 'Creating account...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                alert('Account created successfully!');
+                button.textContent = originalText;
+                button.disabled = false;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
