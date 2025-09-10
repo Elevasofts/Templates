@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funda iPhone 15 Pro Transparente - Protección Premium | Dealy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dealy-yellow': '#fff159',
+                        'dealy-blue': '#3483fa',
+                        'dealy-green': '#00a650'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .image-zoom {
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-zoom:hover {
+            transform: scale(1.05);
+        }
+        
+        .quantity-input::-webkit-outer-spin-button,
+        .quantity-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        .quantity-input[type=number] {
+            -moz-appearance: textfield;
+        }
+        
+        .color-option {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-option.selected::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 2px solid #3483fa;
+            border-radius: 50%;
+        }
+        
+        .thumbnail {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            opacity: 0.7;
+        }
+        
+        .thumbnail:hover,
+        .thumbnail.active {
+            opacity: 1;
+            border-color: #3483fa;
+        }
+        
+        .sticky-purchase {
+            position: sticky;
+            top: 20px;
+        }
+        
+        @media (max-width: 1024px) {
+            .sticky-purchase {
+                position: static;
+            }
+        }
+        
+        .tab-button.active {
+            border-bottom-color: #3483fa;
+            color: #3483fa;
+        }
+        
+        .loading-skeleton {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-dealy-yellow">
+        <!-- Top Bar -->
+        <div class="bg-dealy-yellow px-4 py-2">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.21.22/mercadolibre/logo_large_25years@2x.png" alt="Dealy" class="h-8">
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-2xl mx-8">
+                    <div class="relative">
+                        <input type="text" placeholder="Buscar productos, marcas y más..." 
+                               class="w-full px-4 py-2 pr-12 rounded-sm border-0 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-100 p-1 rounded">
+                            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4 text-sm">
+                    <div class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs">
+                        Tips para comprar como un PRO
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="bg-dealy-yellow px-4 py-2 border-t border-yellow-300">
+            <div class="max-w-7xl mx-auto flex items-center justify-between text-sm">
+                <div class="flex items-center space-x-6">
+                    <span class="text-gray-700">Categorías</span>
+                    <span class="text-gray-700">Historial</span>
+                    <span class="text-gray-700">Tiendas oficiales</span>
+                    <span class="text-gray-700">Vender</span>
+                    <span class="text-gray-700">Ayuda</span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <span class="text-gray-700">Crea tu cuenta</span>
+                    <span class="text-gray-700">Ingresa</span>
+                    <span class="text-gray-700">Mis compras</span>
+                    <a href="cart.html" class="text-gray-700 relative">
+                        <svg class="w-5 h-5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 6H3m4 7v6a2 2 0 002 2h8a2 2 0 002-2v-6m-10 0v-6a2 2 0 012-2h6a2 2 0 012 2v6m-10 0h10" />
+                        </svg>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+            <nav class="flex text-sm text-gray-500">
+                <a href="index.html" class="hover:text-gray-700">Inicio</a>
+                <span class="mx-2">/</span>
+                <a href="products.html" class="hover:text-gray-700">Productos</a>
+                <span class="mx-2">/</span>
+                <a href="products.html?category=cases" class="hover:text-gray-700">Fundas</a>
+                <span class="mx-2">/</span>
+                <span class="text-gray-900">Funda iPhone 15 Pro Transparente</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Product Detail -->
+    <div class="max-w-7xl mx-auto px-4 py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Product Images -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-sm p-4">
+                    <!-- Main Image -->
+                    <div class="aspect-square bg-gray-50 rounded-lg overflow-hidden mb-4">
+                        <img id="mainImage" src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                             alt="Funda iPhone 15 Pro Transparente" 
+                             class="w-full h-full object-cover image-zoom">
+                    </div>
+                    
+                    <!-- Thumbnail Images -->
+                    <div class="grid grid-cols-4 gap-2">
+                        <div class="aspect-square bg-gray-50 rounded overflow-hidden border-2 border-dealy-blue thumbnail active" data-image="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=600">
+                            <img src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=200" 
+                                 alt="Vista frontal" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square bg-gray-50 rounded overflow-hidden border-2 border-gray-200 thumbnail" data-image="https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=600">
+                            <img src="https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=200" 
+                                 alt="Vista lateral" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square bg-gray-50 rounded overflow-hidden border-2 border-gray-200 thumbnail" data-image="https://images.pexels.com/photos/4526416/pexels-photo-4526416.jpeg?auto=compress&cs=tinysrgb&w=600">
+                            <img src="https://images.pexels.com/photos/4526416/pexels-photo-4526416.jpeg?auto=compress&cs=tinysrgb&w=200" 
+                                 alt="Vista trasera" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square bg-gray-50 rounded overflow-hidden border-2 border-gray-200 thumbnail" data-image="https://images.pexels.com/photos/163117/phone-old-year-built-1955-163117.jpeg?auto=compress&cs=tinysrgb&w=600">
+                            <img src="https://images.pexels.com/photos/163117/phone-old-year-built-1955-163117.jpeg?auto=compress&cs=tinysrgb&w=200" 
+                                 alt="Vista detalle" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <!-- Product Header -->
+                    <div class="mb-4">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2 py-1 rounded">MÁS VENDIDO</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">Disponible</span>
+                        </div>
+                        <h1 class="text-2xl font-semibold text-gray-900 mb-2">Funda iPhone 15 Pro Transparente - Protección Premium</h1>
+                        <p class="text-gray-600 text-sm mb-3">Protección militar con transparencia cristalina. Compatible con MagSafe y carga inalámbrica.</p>
+                        
+                        <!-- Rating -->
+                        <div class="flex items-center space-x-2 mb-4">
+                            <div class="flex space-x-1">
+                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                                <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                            </div>
+                            <span class="text-sm text-gray-600">4.8 (324 opiniones)</span>
+                            <a href="#reviews" class="text-sm text-dealy-blue hover:underline">Ver opiniones</a>
+                        </div>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="mb-6">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <span class="text-3xl font-bold text-gray-900" id="currentPrice">$12.99</span>
+                            <span class="text-lg text-gray-500 line-through" id="originalPrice">$19.99</span>
+                            <span class="bg-dealy-green text-white text-sm font-medium px-2 py-1 rounded">35% OFF</span>
+                        </div>
+                        <div class="text-dealy-green text-sm font-medium">Envío gratis</div>
+                    </div>
+
+                    <!-- Color Selection -->
+                    <div class="mb-6">
+                        <h3 class="text-sm font-medium text-gray-900 mb-3">Color: <span id="selectedColorName">Transparente</span></h3>
+                        <div class="flex space-x-3">
+                            <div class="color-option selected w-8 h-8 rounded-full border-2 border-gray-300 bg-transparent" data-color="clear" data-name="Transparente" data-price="12.99" data-original="19.99"></div>
+                            <div class="color-option w-8 h-8 rounded-full border-2 border-gray-300 bg-black" data-color="black" data-name="Negro" data-price="14.99" data-original="21.99"></div>
+                            <div class="color-option w-8 h-8 rounded-full border-2 border-gray-300 bg-blue-500" data-color="blue" data-name="Azul" data-price="14.99" data-original="21.99"></div>
+                            <div class="color-option w-8 h-8 rounded-full border-2 border-gray-300 bg-purple-500" data-color="purple" data-name="Morado" data-price="16.99" data-original="23.99"></div>
+                            <div class="color-option w-8 h-8 rounded-full border-2 border-gray-300 bg-pink-400" data-color="pink" data-name="Rosa" data-price="16.99" data-original="23.99"></div>
+                        </div>
+                    </div>
+
+                    <!-- Model Selection -->
+                    <div class="mb-6">
+                        <h3 class="text-sm font-medium text-gray-900 mb-3">Modelo: <span id="selectedModel">iPhone 15 Pro</span></h3>
+                        <select id="modelSelect" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-dealy-blue focus:border-transparent">
+                            <option value="iphone-15-pro" data-price-modifier="0">iPhone 15 Pro</option>
+                            <option value="iphone-15-pro-max" data-price-modifier="2">iPhone 15 Pro Max (+$2.00)</option>
+                            <option value="iphone-15" data-price-modifier="-1">iPhone 15 (-$1.00)</option>
+                            <option value="iphone-15-plus" data-price-modifier="1">iPhone 15 Plus (+$1.00)</option>
+                        </select>
+                    </div>
+
+                    <!-- Quantity Selection -->
+                    <div class="mb-6">
+                        <h3 class="text-sm font-medium text-gray-900 mb-3">Cantidad</h3>
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center border border-gray-300 rounded">
+                                <button id="decreaseQty" class="p-2 hover:bg-gray-50 transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                                    </svg>
+                                </button>
+                                <input type="number" id="quantity" value="1" min="1" max="10" class="quantity-input w-16 text-center border-0 focus:ring-0">
+                                <button id="increaseQty" class="p-2 hover:bg-gray-50 transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <span class="text-sm text-gray-600">Máximo 10 por pedido</span>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Info -->
+                    <div class="border-t pt-4 space-y-2 text-sm">
+                        <div class="flex items-center space-x-2 text-dealy-green">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Envío gratis en compras superiores a $25</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-gray-600">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Entrega en 2-3 días hábiles</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-gray-600">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                            <span>Devolución gratis en 14 días</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purchase Panel -->
+            <div class="lg:col-span-1">
+                <div class="sticky-purchase bg-white rounded-lg shadow-sm p-6 space-y-4">
+                    <!-- Total Price -->
+                    <div class="border-b pb-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-medium text-gray-900">Total:</span>
+                            <span class="text-2xl font-bold text-gray-900" id="totalPrice">$12.99</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-3">
+                        <button id="addToCartBtn" class="w-full bg-dealy-blue text-white py-3 px-6 rounded font-semibold hover:bg-blue-600 transition-colors flex items-center justify-center space-x-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 6H3m4 7v6a2 2 0 002 2h8a2 2 0 002-2v-6m-10 0v-6a2 2 0 012-2h6a2 2 0 012 2v6m-10 0h10" />
+                            </svg>
+                            <span>Agregar al carrito</span>
+                        </button>
+                        <button class="w-full bg-orange-500 text-white py-3 px-6 rounded font-semibold hover:bg-orange-600 transition-colors">
+                            Comprar ahora
+                        </button>
+                        <button id="wishlistBtn" class="w-full border border-gray-300 text-gray-700 py-2 px-6 rounded font-medium hover:bg-gray-50 transition-colors flex items-center justify-center space-x-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                            <span>Agregar a favoritos</span>
+                        </button>
+                    </div>
+
+                    <!-- Seller Info -->
+                    <div class="border-t pt-4">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                <span class="text-blue-600 font-semibold text-sm">DL</span>
+                            </div>
+                            <div>
+                                <div class="font-medium text-gray-900">Dealy Store</div>
+                                <div class="text-sm text-gray-500">Vendedor oficial</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 text-sm text-gray-600">
+                            <div class="flex items-center space-x-1">
+                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                                <span>4.9</span>
+                            </div>
+                            <span>1,234 ventas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Details Tabs -->
+        <div class="mt-8">
+            <div class="bg-white rounded-lg shadow-sm">
+                <div class="border-b border-gray-200">
+                    <nav class="flex space-x-8 px-6">
+                        <button class="tab-button active py-4 px-1 border-b-2 border-dealy-blue font-medium text-sm text-dealy-blue" data-tab="description">
+                            Descripción
+                        </button>
+                        <button class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700" data-tab="specifications">
+                            Especificaciones
+                        </button>
+                        <button class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700" data-tab="reviews">
+                            Opiniones (324)
+                        </button>
+                        <button class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700" data-tab="shipping">
+                            Envío y devoluciones
+                        </button>
+                    </nav>
+                </div>
+
+                <div class="p-6">
+                    <!-- Description Tab -->
+                    <div id="description" class="tab-content">
+                        <div class="prose max-w-none">
+                            <h3 class="text-lg font-semibold mb-4">Protección Premium para tu iPhone 15 Pro</h3>
+                            <p class="text-gray-600 mb-4">
+                                Nuestra Funda iPhone 15 Pro Transparente ofrece el equilibrio perfecto entre protección y estilo. 
+                                Fabricada con materiales de alta calidad, esta funda proporciona protección de grado militar 
+                                manteniendo el diseño elegante de tu dispositivo.
+                            </p>
+                            <h4 class="font-semibold mb-2">Características principales:</h4>
+                            <ul class="list-disc list-inside space-y-1 text-gray-600 mb-4">
+                                <li>Protección contra caídas de grado militar hasta 3 metros</li>
+                                <li>Transparencia cristalina que muestra el diseño de tu iPhone</li>
+                                <li>Compatible con MagSafe para carga inalámbrica</li>
+                                <li>Bordes elevados protegen cámara y pantalla</li>
+                                <li>Tecnología anti-amarillamiento mantiene la funda transparente</li>
+                                <li>Instalación y remoción fácil</li>
+                            </ul>
+                            <p class="text-gray-600">
+                                Perfecta para uso diario, esta funda combina durabilidad con elegancia, asegurando que tu iPhone 15 Pro 
+                                se mantenga protegido sin comprometer el estilo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Specifications Tab -->
+                    <div id="specifications" class="tab-content hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-semibold mb-4">Especificaciones técnicas</h4>
+                                <dl class="space-y-2">
+                                    <div class="flex justify-between">
+                                        <dt class="text-gray-600">Material:</dt>
+                                        <dd class="font-medium">TPU + PC</dd>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <dt class="text-gray-600">Protección contra caídas:</dt>
+                                        <dd class="font-medium">3 metros</dd>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <dt class="text-gray-600">Peso:</dt>
+                                        <dd class="font-medium">45g</dd>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <dt class="text-gray-600">Grosor:</dt>
+                                        <dd class="font-medium">1.2mm</dd>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <dt class="text-gray-600">Carga inalámbrica:</dt>
+                                        <dd class="font-medium">Compatible</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-4">Compatibilidad</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>• iPhone 15 Pro (6.1")</li>
+                                    <li>• Accesorios MagSafe</li>
+                                    <li>• Cargadores inalámbricos</li>
+                                    <li>• Soportes para auto</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Tab -->
+                    <div id="reviews" class="tab-content hidden">
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-semibold">Opiniones de clientes</h4>
+                                <button class="bg-dealy-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition-colors">
+                                    Escribir opinión
+                                </button>
+                            </div>
+                            
+                            <!-- Review Summary -->
+                            <div class="bg-gray-50 rounded-lg p-6">
+                                <div class="flex items-center space-x-4 mb-4">
+                                    <span class="text-3xl font-bold">4.8</span>
+                                    <div>
+                                        <div class="flex space-x-1 mb-1">
+                                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                            <svg class="w-5 h-5 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                            </svg>
+                                        </div>
+                                        <span class="text-sm text-gray-600">Basado en 324 opiniones</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Individual Reviews -->
+                            <div class="space-y-6">
+                                <div class="border-b border-gray-200 pb-6">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="font-medium">Sarah M.</span>
+                                            <div class="flex space-x-1">
+                                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                                </svg>
+                                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                                </svg>
+                                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                                </svg>
+                                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                                </svg>
+                                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <span class="text-sm text-gray-500">Hace 2 días</span>
+                                    </div>
+                                    <p class="text-gray-600">¡Funda perfecta! Cristalina y gran protección. Se me cayó el teléfono dos veces y no hubo daños. ¡Muy recomendable!</p>
+                                </div>
+                                
+                                <div class="border-b border-gray-200 pb-6">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="font-medium">Miguel R.</span>
+                                            <div class="flex space-x-1">
+                                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                                </svg>
+                                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                                </svg>
+                                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                                </svg>
+                                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                                </svg>
+                                                <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 20 20">
+                                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <span class="text-sm text-gray-500">Hace 1 semana</span>
+                                    </div>
+                                    <p class="text-gray-600">Buena calidad, encaja perfecto. MagSafe funciona genial. El único problema menor es que atrae huellas fácilmente.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Tab -->
+                    <div id="shipping" class="tab-content hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-semibold mb-4">Información de envío</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h5 class="font-medium mb-2">Envío gratis</h5>
+                                        <p class="text-gray-600 text-sm">Envío estándar gratis en pedidos superiores a $25. Entrega en 2-3 días hábiles.</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">Envío express</h5>
+                                        <p class="text-gray-600 text-sm">$4.99 para entrega al día siguiente. Pedidos antes de las 2 PM se procesan el mismo día.</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">Envío internacional</h5>
+                                        <p class="text-gray-600 text-sm">Disponible a países de la UE. Entrega en 5-7 días hábiles. Pueden aplicar tasas aduaneras.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-4">Devoluciones e intercambios</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h5 class="font-medium mb-2">Política de devolución de 14 días</h5>
+                                        <p class="text-gray-600 text-sm">Devuelve artículos dentro de 14 días de la entrega para un reembolso completo. Los artículos deben estar en condición original.</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">Devoluciones fáciles</h5>
+                                        <p class="text-gray-600 text-sm">Imprime una etiqueta de devolución prepagada desde tu cuenta. Déjalo en cualquier oficina postal o programa una recogida.</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">Intercambios</h5>
+                                        <p class="text-gray-600 text-sm">Intercambios gratuitos por diferentes colores o tamaños. Contacta servicio al cliente para organizar un intercambio.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">¡Agregado al carrito!</h3>
+                <p class="text-gray-600 mb-6">Tu artículo se agregó correctamente al carrito.</p>
+                <div class="flex space-x-3">
+                    <button id="continueShopping" class="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded hover:bg-gray-50 transition-colors">
+                        Seguir comprando
+                    </button>
+                    <button onclick="window.location.href='cart.html'" class="flex-1 bg-dealy-blue text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors">
+                        Ver carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.getElementById('mainImage');
+            const colorOptions = document.querySelectorAll('.color-option');
+            const selectedColorName = document.getElementById('selectedColorName');
+            const modelSelect = document.getElementById('modelSelect');
+            const selectedModel = document.getElementById('selectedModel');
+            const quantityInput = document.getElementById('quantity');
+            const decreaseBtn = document.getElementById('decreaseQty');
+            const increaseBtn = document.getElementById('increaseQty');
+            const currentPrice = document.getElementById('currentPrice');
+            const originalPrice = document.getElementById('originalPrice');
+            const totalPrice = document.getElementById('totalPrice');
+            const addToCartBtn = document.getElementById('addToCartBtn');
+            const wishlistBtn = document.getElementById('wishlistBtn');
+            const cartCount = document.getElementById('cartCount');
+            const successModal = document.getElementById('successModal');
+            const continueShopping = document.getElementById('continueShopping');
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            let basePrice = 12.99;
+            let baseOriginalPrice = 19.99;
+            let modelModifier = 0;
+
+            // Thumbnail image switching
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    thumbnails.forEach(t => t.classList.remove('active', 'border-dealy-blue'));
+                    thumbnails.forEach(t => t.classList.add('border-gray-200'));
+                    
+                    this.classList.add('active', 'border-dealy-blue');
+                    this.classList.remove('border-gray-200');
+                    
+                    mainImage.src = this.dataset.image;
+                });
+            });
+
+            // Color selection
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    colorOptions.forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    selectedColorName.textContent = this.dataset.name;
+                    basePrice = parseFloat(this.dataset.price);
+                    baseOriginalPrice = parseFloat(this.dataset.original);
+                    updatePricing();
+                });
+            });
+
+            // Model selection
+            modelSelect.addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex];
+                selectedModel.textContent = selectedOption.text.split(' (')[0];
+                modelModifier = parseFloat(selectedOption.dataset.priceModifier);
+                updatePricing();
+            });
+
+            // Quantity controls
+            decreaseBtn.addEventListener('click', function() {
+                const currentQty = parseInt(quantityInput.value);
+                if (currentQty > 1) {
+                    quantityInput.value = currentQty - 1;
+                    updatePricing();
+                }
+            });
+
+            increaseBtn.addEventListener('click', function() {
+                const currentQty = parseInt(quantityInput.value);
+                if (currentQty < 10) {
+                    quantityInput.value = currentQty + 1;
+                    updatePricing();
+                }
+            });
+
+            quantityInput.addEventListener('input', function() {
+                let value = parseInt(this.value);
+                if (isNaN(value) || value < 1) value = 1;
+                if (value > 10) value = 10;
+                this.value = value;
+                updatePricing();
+            });
+
+            // Update pricing
+            function updatePricing() {
+                const finalPrice = basePrice + modelModifier;
+                const finalOriginalPrice = baseOriginalPrice + modelModifier;
+                const quantity = parseInt(quantityInput.value);
+                const total = finalPrice * quantity;
+
+                currentPrice.textContent = `$${finalPrice.toFixed(2)}`;
+                originalPrice.textContent = `$${finalOriginalPrice.toFixed(2)}`;
+                totalPrice.textContent = `$${total.toFixed(2)}`;
+            }
+
+            // Add to cart
+            addToCartBtn.addEventListener('click', function() {
+                const currentCount = parseInt(cartCount.textContent);
+                const quantity = parseInt(quantityInput.value);
+                cartCount.textContent = currentCount + quantity;
+                
+                // Show success modal
+                successModal.classList.remove('hidden');
+                
+                // Add animation to button
+                this.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg><span>Agregando...</span>';
+                
+                setTimeout(() => {
+                    this.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>¡Agregado!</span>';
+                    this.classList.add('bg-green-600');
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 6H3m4 7v6a2 2 0 002 2h8a2 2 0 002-2v-6m-10 0v-6a2 2 0 012-2h6a2 2 0 012 2v6m-10 0h10"></path></svg><span>Agregar al carrito</span>';
+                        this.classList.remove('bg-green-600');
+                    }, 2000);
+                }, 1000);
+            });
+
+            // Wishlist toggle
+            wishlistBtn.addEventListener('click', function() {
+                const isWishlisted = this.classList.contains('wishlisted');
+                
+                if (isWishlisted) {
+                    this.classList.remove('wishlisted', 'bg-red-50', 'text-red-600', 'border-red-200');
+                    this.classList.add('border-gray-300', 'text-gray-700');
+                    this.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg><span>Agregar a favoritos</span>';
+                } else {
+                    this.classList.add('wishlisted', 'bg-red-50', 'text-red-600', 'border-red-200');
+                    this.classList.remove('border-gray-300', 'text-gray-700');
+                    this.innerHTML = '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg><span>Agregado a favoritos</span>';
+                }
+            });
+
+            // Modal controls
+            continueShopping.addEventListener('click', function() {
+                successModal.classList.add('hidden');
+            });
+
+            successModal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.add('hidden');
+                }
+            });
+
+            // Tab functionality
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+                    
+                    // Update button states
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active', 'border-dealy-blue', 'text-dealy-blue');
+                        btn.classList.add('border-transparent', 'text-gray-500');
+                    });
+                    
+                    this.classList.add('active', 'border-dealy-blue', 'text-dealy-blue');
+                    this.classList.remove('border-transparent', 'text-gray-500');
+                    
+                    // Update content
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    document.getElementById(tabId).classList.remove('hidden');
+                });
+            });
+
+            // Initialize pricing
+            updatePricing();
+        });
+    </script>
+</body>
+</html>

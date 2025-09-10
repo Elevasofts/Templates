@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Dealy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dealy-yellow': '#fff159',
+                        'dealy-blue': '#3483fa',
+                        'dealy-green': '#00a650'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .payment-method {
+            transition: all 0.2s ease;
+        }
+        
+        .payment-method.selected {
+            border-color: #3483fa;
+            background-color: #f0f8ff;
+        }
+        
+        .step-indicator {
+            position: relative;
+        }
+        
+        .step-indicator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 80px;
+            height: 2px;
+            background: #e5e7eb;
+            transform: translateY(-50%);
+        }
+        
+        .step-indicator.active::after {
+            background: #3483fa;
+        }
+        
+        .step-indicator:last-child::after {
+            display: none;
+        }
+        
+        .form-input {
+            transition: all 0.2s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #3483fa;
+            box-shadow: 0 0 0 3px rgba(52, 131, 250, 0.1);
+        }
+        
+        .loading-spinner {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-dealy-yellow">
+        <!-- Top Bar -->
+        <div class="bg-dealy-yellow px-4 py-2">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.21.22/mercadolibre/logo_large_25years@2x.png" alt="Dealy" class="h-8">
+                </div>
+                
+                <!-- Security Badge -->
+                <div class="flex items-center space-x-2 text-sm text-gray-700">
+                    <svg class="w-5 h-5 text-dealy-green" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Compra Segura</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="bg-dealy-yellow px-4 py-2 border-t border-yellow-300">
+            <div class="max-w-7xl mx-auto flex items-center justify-between text-sm">
+                <div class="flex items-center space-x-6">
+                    <span class="text-gray-700">Categorías</span>
+                    <span class="text-gray-700">Historial</span>
+                    <span class="text-gray-700">Tiendas oficiales</span>
+                    <span class="text-gray-700">Vender</span>
+                    <span class="text-gray-700">Ayuda</span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <span class="text-gray-700">Crea tu cuenta</span>
+                    <span class="text-gray-700">Ingresa</span>
+                    <span class="text-gray-700">Mis compras</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+            <nav class="flex text-sm text-gray-500">
+                <a href="index.html" class="hover:text-gray-700">Inicio</a>
+                <span class="mx-2">/</span>
+                <a href="cart.html" class="hover:text-gray-700">Carrito</a>
+                <span class="mx-2">/</span>
+                <span class="text-gray-900">Finalizar compra</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Checkout Steps -->
+    <div class="bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="flex items-center justify-center space-x-8">
+                <div class="step-indicator active flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-dealy-blue text-white rounded-full flex items-center justify-center text-sm font-medium">1</div>
+                    <span class="text-sm font-medium text-dealy-blue">Carrito</span>
+                </div>
+                <div class="step-indicator active flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-dealy-blue text-white rounded-full flex items-center justify-center text-sm font-medium">2</div>
+                    <span class="text-sm font-medium text-dealy-blue">Datos</span>
+                </div>
+                <div class="step-indicator flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-medium">3</div>
+                    <span class="text-sm font-medium text-gray-500">Pago</span>
+                </div>
+                <div class="step-indicator flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-medium">4</div>
+                    <span class="text-sm font-medium text-gray-500">Confirmación</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Checkout Form -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Contact Information -->
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <h2 class="text-xl font-semibold text-gray-900 mb-6">Información de contacto</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nombre *</label>
+                            <input type="text" id="firstName" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="Juan" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Apellido *</label>
+                            <input type="text" id="lastName" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="Pérez" required>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                            <input type="email" id="email" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="juan.perez@ejemplo.com" required>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Teléfono *</label>
+                            <input type="tel" id="phone" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="+54 11 1234-5678" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping Address -->
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <h2 class="text-xl font-semibold text-gray-900 mb-6">Dirección de envío</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Dirección *</label>
+                            <input type="text" id="address" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="Av. Corrientes 1234" required>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Ciudad *</label>
+                                <input type="text" id="city" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="Buenos Aires" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Provincia *</label>
+                                <select id="state" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" required>
+                                    <option value="">Seleccionar</option>
+                                    <option value="BA">Buenos Aires</option>
+                                    <option value="CABA">CABA</option>
+                                    <option value="CO">Córdoba</option>
+                                    <option value="SF">Santa Fe</option>
+                                    <option value="MZ">Mendoza</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Código Postal *</label>
+                                <input type="text" id="zipCode" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="1000" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping Method -->
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <h2 class="text-xl font-semibold text-gray-900 mb-6">Método de envío</h2>
+                    <div class="space-y-4">
+                        <label class="payment-method flex items-center justify-between p-4 border-2 border-gray-200 rounded-lg cursor-pointer">
+                            <div class="flex items-center space-x-3">
+                                <input type="radio" name="shipping" value="standard" class="text-dealy-blue focus:ring-dealy-blue" checked>
+                                <div>
+                                    <div class="font-medium text-gray-900">Envío estándar</div>
+                                    <div class="text-sm text-gray-500">5-7 días hábiles</div>
+                                </div>
+                            </div>
+                            <span class="font-semibold text-dealy-green">Gratis</span>
+                        </label>
+                        
+                        <label class="payment-method flex items-center justify-between p-4 border-2 border-gray-200 rounded-lg cursor-pointer">
+                            <div class="flex items-center space-x-3">
+                                <input type="radio" name="shipping" value="express" class="text-dealy-blue focus:ring-dealy-blue">
+                                <div>
+                                    <div class="font-medium text-gray-900">Envío express</div>
+                                    <div class="text-sm text-gray-500">2-3 días hábiles</div>
+                                </div>
+                            </div>
+                            <span class="font-semibold text-gray-900">$299</span>
+                        </label>
+                        
+                        <label class="payment-method flex items-center justify-between p-4 border-2 border-gray-200 rounded-lg cursor-pointer">
+                            <div class="flex items-center space-x-3">
+                                <input type="radio" name="shipping" value="overnight" class="text-dealy-blue focus:ring-dealy-blue">
+                                <div>
+                                    <div class="font-medium text-gray-900">Envío inmediato</div>
+                                    <div class="text-sm text-gray-500">24 horas</div>
+                                </div>
+                            </div>
+                            <span class="font-semibold text-gray-900">$599</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <h2 class="text-xl font-semibold text-gray-900 mb-6">Método de pago</h2>
+                    
+                    <!-- Payment Options -->
+                    <div class="space-y-4 mb-6">
+                        <label class="payment-method flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer">
+                            <input type="radio" name="payment" value="card" class="text-dealy-blue focus:ring-dealy-blue mr-3" checked>
+                            <div class="flex items-center space-x-3">
+                                <div class="flex space-x-2">
+                                    <div class="w-8 h-5 bg-blue-600 rounded text-xs text-white flex items-center justify-center font-bold">VISA</div>
+                                    <div class="w-8 h-5 bg-red-500 rounded text-xs text-white flex items-center justify-center font-bold">MC</div>
+                                    <div class="w-8 h-5 bg-blue-500 rounded text-xs text-white flex items-center justify-center font-bold">AMEX</div>
+                                </div>
+                                <span class="font-medium text-gray-900">Tarjeta de crédito/débito</span>
+                            </div>
+                        </label>
+                        
+                        <label class="payment-method flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer">
+                            <input type="radio" name="payment" value="mercadopago" class="text-dealy-blue focus:ring-dealy-blue mr-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-5 bg-blue-400 rounded text-xs text-white flex items-center justify-center font-bold">MP</div>
+                                <span class="font-medium text-gray-900">Mercado Pago</span>
+                            </div>
+                        </label>
+                        
+                        <label class="payment-method flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer">
+                            <input type="radio" name="payment" value="transfer" class="text-dealy-blue focus:ring-dealy-blue mr-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-5 bg-green-600 rounded text-xs text-white flex items-center justify-center font-bold">$</div>
+                                <span class="font-medium text-gray-900">Transferencia bancaria</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Card Details Form -->
+                    <div id="cardForm" class="slide-in space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Número de tarjeta *</label>
+                            <input type="text" id="cardNumber" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Vencimiento *</label>
+                                <input type="text" id="expiryDate" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="MM/AA" maxlength="5">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">CVV *</label>
+                                <input type="text" id="cvv" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="123" maxlength="4">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nombre del titular *</label>
+                            <input type="text" id="cardholderName" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="Juan Pérez">
+                        </div>
+                    </div>
+
+                    <!-- Alternative Payment Forms (Hidden by default) -->
+                    <div id="mercadopagoForm" class="hidden slide-in">
+                        <div class="text-center py-8">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Pagar con Mercado Pago</h3>
+                            <p class="text-gray-600 mb-6">Serás redirigido a Mercado Pago para completar tu pago de forma segura.</p>
+                            <button class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                                Continuar con Mercado Pago
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="transferForm" class="hidden slide-in">
+                        <div class="text-center py-8">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Transferencia Bancaria</h3>
+                            <p class="text-gray-600 mb-6">Recibirás los datos bancarios por email para realizar la transferencia.</p>
+                            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-sm text-yellow-800">
+                                <p><strong>Importante:</strong> Tu pedido se procesará una vez confirmado el pago (24-48 horas).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-sm sticky top-4">
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6">Resumen del pedido</h2>
+                        
+                        <!-- Order Items -->
+                        <div class="space-y-4 mb-6">
+                            <div class="flex items-center space-x-4">
+                                <img src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=100" 
+                                     alt="Funda iPhone 15 Pro" 
+                                     class="w-16 h-16 object-cover rounded-lg">
+                                <div class="flex-1">
+                                    <h4 class="font-medium text-gray-900">Funda iPhone 15 Pro Transparente</h4>
+                                    <p class="text-sm text-gray-500">Transparente • Cantidad: 2</p>
+                                </div>
+                                <span class="font-semibold text-gray-900">$25.98</span>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <img src="https://images.pexels.com/photos/163117/phone-old-year-built-1955-163117.jpeg?auto=compress&cs=tinysrgb&w=100" 
+                                     alt="Cargador Inalámbrico" 
+                                     class="w-16 h-16 object-cover rounded-lg">
+                                <div class="flex-1">
+                                    <h4 class="font-medium text-gray-900">Cargador Inalámbrico Rápido Pro</h4>
+                                    <p class="text-sm text-gray-500">Blanco • Cantidad: 1</p>
+                                </div>
+                                <span class="font-semibold text-gray-900">$24.90</span>
+                            </div>
+                        </div>
+
+                        <!-- Order Totals -->
+                        <div class="space-y-3 border-t border-gray-200 pt-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Subtotal</span>
+                                <span class="text-gray-900">$50.88</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Envío</span>
+                                <span class="text-gray-900" id="shippingCost">Gratis</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Impuestos</span>
+                                <span class="text-gray-900">$4.07</span>
+                            </div>
+                            <div class="flex justify-between text-lg font-semibold border-t border-gray-200 pt-3">
+                                <span class="text-gray-900">Total</span>
+                                <span class="text-gray-900" id="totalAmount">$54.95</span>
+                            </div>
+                        </div>
+
+                        <!-- Place Order Button -->
+                        <button id="placeOrderBtn" class="w-full bg-dealy-blue text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-600 transition-colors mt-6 flex items-center justify-center space-x-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                            <span>Finalizar compra</span>
+                        </button>
+
+                        <!-- Security Info -->
+                        <div class="mt-6 text-center">
+                            <div class="flex items-center justify-center space-x-2 text-sm text-gray-500">
+                                <svg class="w-4 h-4 text-dealy-green" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Compra 100% segura y protegida</span>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-2">Tu información está protegida con SSL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Processing Modal -->
+    <div id="processingModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
+            <div class="loading-spinner w-12 h-12 border-4 border-gray-200 border-t-dealy-blue rounded-full mx-auto mb-4"></div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Procesando pago</h3>
+            <p class="text-gray-600">Por favor espera mientras procesamos tu pago de forma segura...</p>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">¡Pago exitoso!</h3>
+            <p class="text-gray-600 mb-6">Tu pedido ha sido procesado correctamente. Recibirás un email de confirmación en breve.</p>
+            <div class="space-y-3">
+                <button id="viewOrderBtn" class="w-full bg-dealy-blue text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">
+                    Ver detalles del pedido
+                </button>
+                <button id="continueShoppingBtn" class="w-full border border-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                    Seguir comprando
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Payment method selection
+            const paymentMethods = document.querySelectorAll('input[name="payment"]');
+            const cardForm = document.getElementById('cardForm');
+            const mercadopagoForm = document.getElementById('mercadopagoForm');
+            const transferForm = document.getElementById('transferForm');
+
+            paymentMethods.forEach(method => {
+                method.addEventListener('change', function() {
+                    // Hide all forms
+                    cardForm.classList.add('hidden');
+                    mercadopagoForm.classList.add('hidden');
+                    transferForm.classList.add('hidden');
+
+                    // Show selected form
+                    switch(this.value) {
+                        case 'card':
+                            cardForm.classList.remove('hidden');
+                            break;
+                        case 'mercadopago':
+                            mercadopagoForm.classList.remove('hidden');
+                            break;
+                        case 'transfer':
+                            transferForm.classList.remove('hidden');
+                            break;
+                    }
+                });
+            });
+
+            // Shipping method selection
+            const shippingMethods = document.querySelectorAll('input[name="shipping"]');
+            const shippingCost = document.getElementById('shippingCost');
+            const totalAmount = document.getElementById('totalAmount');
+
+            shippingMethods.forEach(method => {
+                method.addEventListener('change', function() {
+                    let cost = 0;
+                    let costText = 'Gratis';
+                    
+                    switch(this.value) {
+                        case 'express':
+                            cost = 299;
+                            costText = '$299';
+                            break;
+                        case 'overnight':
+                            cost = 599;
+                            costText = '$599';
+                            break;
+                    }
+                    
+                    shippingCost.textContent = costText;
+                    updateTotal();
+                });
+            });
+
+            // Card number formatting
+            const cardNumber = document.getElementById('cardNumber');
+            cardNumber.addEventListener('input', function() {
+                let value = this.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+                let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+                this.value = formattedValue;
+            });
+
+            // Expiry date formatting
+            const expiryDate = document.getElementById('expiryDate');
+            expiryDate.addEventListener('input', function() {
+                let value = this.value.replace(/\D/g, '');
+                if (value.length >= 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                }
+                this.value = value;
+            });
+
+            // CVV validation
+            const cvv = document.getElementById('cvv');
+            cvv.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+
+            // Update total calculation
+            function updateTotal() {
+                let subtotal = 50.88;
+                let shipping = 0;
+                let tax = 4.07;
+
+                // Get shipping cost
+                const selectedShipping = document.querySelector('input[name="shipping"]:checked');
+                if (selectedShipping) {
+                    switch(selectedShipping.value) {
+                        case 'express':
+                            shipping = 299;
+                            break;
+                        case 'overnight':
+                            shipping = 599;
+                            break;
+                    }
+                }
+
+                const total = subtotal + shipping + tax;
+                totalAmount.textContent = '$' + total.toFixed(2);
+            }
+
+            // Form validation
+            function validateForm() {
+                const requiredFields = document.querySelectorAll('input[required]');
+                let isValid = true;
+
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        field.classList.remove('border-red-500');
+                    }
+                });
+
+                return isValid;
+            }
+
+            // Place order functionality
+            const placeOrderBtn = document.getElementById('placeOrderBtn');
+            const processingModal = document.getElementById('processingModal');
+            const successModal = document.getElementById('successModal');
+
+            placeOrderBtn.addEventListener('click', function() {
+                if (!validateForm()) {
+                    alert('Por favor completa todos los campos requeridos');
+                    return;
+                }
+
+                // Show processing modal
+                processingModal.classList.remove('hidden');
+
+                // Simulate payment processing
+                setTimeout(() => {
+                    processingModal.classList.add('hidden');
+                    successModal.classList.remove('hidden');
+                }, 3000);
+            });
+
+            // Success modal actions
+            document.getElementById('viewOrderBtn').addEventListener('click', function() {
+                window.location.href = 'order-confirmation.html';
+            });
+
+            document.getElementById('continueShoppingBtn').addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+
+            // Payment method styling
+            const paymentLabels = document.querySelectorAll('.payment-method');
+            paymentLabels.forEach(label => {
+                label.addEventListener('click', function() {
+                    paymentLabels.forEach(l => l.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+
+            // Initialize first payment method as selected
+            document.querySelector('.payment-method').classList.add('selected');
+        });
+    </script>
+</body>
+</html>
